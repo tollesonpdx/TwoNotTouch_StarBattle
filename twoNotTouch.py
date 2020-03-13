@@ -25,16 +25,29 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
 
+class boardList:
+    a = ((0,0,1,1,2,2,2,2),
+         (3,3,3,1,1,2,2,2),
+         (4,4,4,4,1,2,2,2),
+         (4,4,4,4,4,4,2,2),
+         (5,6,6,6,4,4,2,2),
+         (5,6,6,6,6,6,6,6),
+         (5,5,7,7,7,7,6,6),
+         (7,7,7,7,7,7,7,7))
+    b = ((0,0,0,0,0,0,0,0,1,1),
+         (2,0,0,0,0,0,0,0,3,1),
+         (2,2,2,2,3,3,3,3,1,1),
+         (2,2,2,4,4,4,4,4,4,4),
+         (2,2,5,5,5,4,4,4,4,6),
+         (2,2,5,5,7,7,8,8,6,6),
+         (9,9,5,5,7,8,8,8,6,6),
+         (9,9,5,5,7,8,8,8,6,6),
+         (9,9,5,5,7,8,8,8,6,6),
+         (9,9,5,5,5,8,8,6,6,6))
+
 class board(object):
-    def __init__(self):
-        self.regions = ((0,0,1,1,2,2,2,2),
-                        (3,3,3,1,1,2,2,2),
-                        (4,4,4,4,1,2,2,2),
-                        (4,4,4,4,4,4,2,2),
-                        (5,6,6,6,4,4,2,2),
-                        (5,6,6,6,6,6,6,6),
-                        (5,5,7,7,7,7,6,6),
-                        (7,7,7,7,7,7,7,7))
+    def __init__(self, option):
+        self.regions = option
         self.size = len(self.regions[0])
         self.regionList = self.create_region_list()
         
@@ -46,7 +59,9 @@ class board(object):
                 [4,[], bcolors.CGREY],
                 [5,[], bcolors.CRED],
                 [6,[], bcolors.CVIOLET],
-                [7,[], bcolors.CYELLOW]]
+                [7,[], bcolors.CYELLOW],
+                [8,[], bcolors.CBLACK],
+                [9,[], bcolors.CGREEN2]]
         for i in range(self.size):
             row = self.regions[i]
             for j in range(self.size):
@@ -85,8 +100,14 @@ class board(object):
             print()
 
 if __name__ == "__main__":
-    boardA = board()
+    boardA = board(boardList.a)
     print('Board, in Tuples:\n',boardA.regions)
     print('List of Regions:\n',boardA.regionList)
     boardA.print_board()
     boardA.print_board_2()
+
+    boardB = board(boardList.b)
+    print('Board, in Tuples:\n',boardB.regions)
+    print('List of Regions:\n',boardB.regionList)
+    boardB.print_board()
+    boardB.print_board_2()

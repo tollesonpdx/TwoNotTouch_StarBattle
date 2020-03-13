@@ -25,53 +25,34 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
 
-
 class board(object):
-    def __init__(self, size):
-        self.size = size
+    def __init__(self):
+        self.regions = ((0,0,1,1,2,2,2,2),
+                        (3,3,3,1,1,2,2,2),
+                        (4,4,4,4,1,2,2,2),
+                        (4,4,4,4,4,4,2,2),
+                        (5,6,6,6,4,4,2,2),
+                        (5,6,6,6,6,6,6,6),
+                        (5,5,7,7,7,7,6,6),
+                        (7,7,7,7,7,7,7,7))
+        self.size = len(self.regions[0])
         self.regionList = self.create_region_list()
-        self.regions = self.create_regions()
         
-        # # hard coded regions for testing
-        # self.regions = (0,0,1,1,2,2,2,2,
-        #                 3,3,3,1,1,2,2,2,
-        #                 4,4,4,4,1,2,2,2,
-        #                 4,4,4,4,4,4,2,2,
-        #                 5,6,6,6,4,4,2,2,
-        #                 5,6,6,6,6,6,6,6,
-        #                 5,5,7,7,7,7,6,6,
-        #                 7,7,7,7,7,7,7,7)
-        # # hard coded for testing
-
     def create_region_list(self):
-        rl = []
-        remaining_squares = self.size * self.size
-        assigned_squares = 0
-        for i in range(0, self.size):
-            if i < self.size - 1:
-                reg_size = random.randrange(1, (remaining_squares - (self.size - i)))
-            else:
-                reg_size = remaining_squares
-            rl.append([i, reg_size])
-            remaining_squares -= reg_size
-            assigned_squares += reg_size
-        print('Remaining:', remaining_squares)
-        print('Assigned:', assigned_squares)
-        print('Regions List:', rl)
+        rl =   [[0,[], bcolors.CWHITE],
+                [1,[], bcolors.CRED2],
+                [2,[], bcolors.CBLUE],
+                [3,[], bcolors.CGREEN],
+                [4,[], bcolors.CGREY],
+                [5,[], bcolors.CRED],
+                [6,[], bcolors.CVIOLET],
+                [7,[], bcolors.CYELLOW]]
+        for i in range(self.size):
+            row = self.regions[i]
+            for j in range(self.size):
+                item = row[j]
+                rl[item][1].append((i,j))
         return rl
-
-    def create_regions(self):
-        r = ['_'] * self.size * self.size
-        for i, j in self.regionList:
-            new_reg_bool = False
-            while not new_reg_bool:
-                new_reg = random.randrange(0,len(r))
-                if (r[new_reg] == '_'):
-                    r[new_reg] = i
-                    new_reg_bool = True
-        # add flood fill algo here  https://en.wikipedia.org/wiki/Flood_fill
-        r = tuple(r)
-        return r
     
     def print_board(self):
         print()
@@ -81,10 +62,12 @@ class board(object):
             for j in range(self.size * 2 +1):
                 if (j % 2) == 0: list1.append("|")
                 else:
-                    if i == j:
-                        list1.append(bcolors.CRED + "*" + bcolors.ENDC)
+                    if i == (j-1)/2:
+                        value = "*"
                     else:
-                        list1.append(bcolors.CVIOLET + "_" + bcolors.ENDC)
+                        value = "_"
+                    color = self.regionList[self.regions[i][int((j-1)/2)]][2]
+                    list1.append(color + value + bcolors.ENDC)
             grid.append(list1)
         for row in grid:
             print("".join(row))
@@ -94,14 +77,16 @@ class board(object):
         for i in range(self.size):
             for j in range(self.size):
                 if i == j:
-                    print(bcolors.CRED2 + STAR + bcolors.ENDC, sep='', end='')
+                    value = STAR
                 else:
-                    print(bcolors.CGREEN2 + EMPTY + bcolors.ENDC, sep='', end='')
+                    value = EMPTY
+                color = self.regionList[self.regions[i][j]][2]
+                print(color + value + bcolors.ENDC, sep='', end='')
             print()
 
-
 if __name__ == "__main__":
-    boardA = board(8)
-    print('Regions:\n',boardA.regions)
+    boardA = board()
+    print('Board, in Tuples:\n',boardA.regions)
+    print('List of Regions:\n',boardA.regionList)
     boardA.print_board()
     boardA.print_board_2()

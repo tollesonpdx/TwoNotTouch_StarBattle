@@ -12,7 +12,7 @@ class TestStringMethods(unittest.TestCase):
                  (5,6,6,6,6,6,6,6),
                  (5,5,7,7,7,7,6,6),
                  (7,7,7,7,7,7,7,7))
-        regionCoords= bt.get_region_coords(board)
+        regionCoords= bt.region_domains(board)
         regions=regionCoords.keys()
         for i in range(0,8):
             self.assertIn(i, regions)
@@ -26,17 +26,44 @@ class TestStringMethods(unittest.TestCase):
                  (5,6,6,6,6,6,6,6),
                  (5,5,7,7,7,7,6,6),
                  (7,7,7,7,7,7,7,7))
-        regionCoords= bt.get_region_coords(board)
+        regionCoords= bt.region_domains(board)
         self.assertEqual(regionCoords[0], {(0,0), (0,1)})
 
     def test_init_var(self):
         vars=bt.init_variables([1,2,3])
-        self.assertIn('1A', vars.keys())
-        self.assertIn('1B', vars.keys())
-        self.assertIn('2A', vars.keys())
-        self.assertIn('2B', vars.keys())
-        self.assertIn('3A', vars.keys())
-        self.assertIn('3B', vars.keys())
+        self.assertIn('1A', vars)
+        self.assertIn('1B', vars)
+        self.assertIn('2A', vars)
+        self.assertIn('2B', vars)
+        self.assertIn('3A', vars)
+        self.assertIn('3B', vars)
+
+    def test_init_assignments(self):
+        vars=bt.init_variables([1,2,3])
+        assignments=bt.init_assignments(vars)
+        self.assertIn('1A', assignments.keys())
+        self.assertIn('1B', assignments.keys())
+        self.assertIn('2A', assignments.keys())
+        self.assertIn('2B', assignments.keys())
+        self.assertIn('3A', assignments.keys())
+        self.assertIn('3B', assignments.keys())
+
+    def test_init_domains(self):
+        board = ((0,0,1,1,2,2,2,2),
+                 (3,3,3,1,1,2,2,2),
+                 (4,4,4,4,1,2,2,2),
+                 (4,4,4,4,4,4,2,2),
+                 (5,6,6,6,4,4,2,2),
+                 (5,6,6,6,6,6,6,6),
+                 (5,5,7,7,7,7,6,6),
+                 (7,7,7,7,7,7,7,7))
+
+        regionDomains = bt.region_domains(board)
+        X = bt.init_variables(regionDomains.keys())
+        D = bt.init_domains(X, regionDomains)
+        self.assertIn((0,0), D['0A']) 
+        self.assertIn((0,1), D['0A']) 
+        self.assertIn((7,7), D['7A']) 
 
 #   def test_upper(self):
 #       self.assertEqual('foo'.upper(), 'FOO')

@@ -1,5 +1,5 @@
 
-def get_region_coords(board):
+def region_domains(board):
     """
     make list of tuples for each region to construct domains
     return dictionary of region : set of coord pairs
@@ -19,12 +19,21 @@ def get_region_coords(board):
     return regionCoords
 
 def init_variables(regions):
-    vars = {}
+    vars = set()
     for region in regions:
-        vars[str(region)+"A"]=None
-        vars[str(region)+"B"]=None
+        vars.add(str(region)+"A")
+        vars.add(str(region)+"B")
     return vars
 
+def init_assignments(vars):
+    return {var: None for var in vars}
+
+def init_domains(X, regionDomains):
+    D = {}
+    for var in X:
+        D[var] = set()
+        D[var]= {coord for coord in regionDomains[int(var[0])]}
+    return D
 
 board = ((0,0,1,1,2,2,2,2),
          (3,3,3,1,1,2,2,2),
@@ -37,19 +46,18 @@ board = ((0,0,1,1,2,2,2,2),
 
 maxRow = len(board)
 maxCol = len(board[0])
-regionCoords = get_region_coords(board)
 
-# set of variables
-X = init_variables(regionCoords.keys())
+regionDomains = region_domains(board)
+
+# set of variables- each variable is one of two stars in region
+X = init_variables(regionDomains.keys())
+
+#assignments where key is var from X
+assignments= init_assignments(X)
 
 # set of domains
-#D=
+D= init_domains(X, regionDomains)
 
-# each variable one of two stars in col
-# D_i = {1..(maxCol*2)}
-# OR
-# each variable is one of two stars in region, algorithm would take region boundres as input
-#
 
 # constraints
 # star from same region have different locations 

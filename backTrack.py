@@ -1,4 +1,6 @@
 
+from collections import namedtuple
+
 def region_domains(board):
     """
     make list of tuples for each region to construct domains
@@ -35,6 +37,62 @@ def init_domains(X, regionDomains):
         D[var]= {coord for coord in regionDomains[int(var[0])]}
     return D
 
+# def class CSP():
+#     def __init__(self, X, D, C):
+#         self.X = X
+#         self.D = D
+#         self.C = C
+
+def backtracking_search(csp):
+    return backtrack({}, csp)
+
+def backtrack(assignments, csp):
+    #if assignments is complete then return assignments
+    if is_complete(assignments):
+        return assignments
+    var = select_unassigned_var(csp, assignments)
+    for value in order_domain_values(var, assignment, csp):
+        #if value is consistent with assignment then
+        #order_domain_values ensures consistency with assignment
+
+        # add {var=value} to assignments
+        assignments[var]=value
+        inferences = inferences(csp, var, assignment)
+
+    
+#not tested
+def order_domain_values(var, assignment, csp):
+    #what order should values be tried?
+    #don't try ones that are already taken
+    return csp.D[var] - csp.C
+    #return csp.D[var]
+
+# not tested
+def select_unassigned_var(csp, assignments):
+    # which variable should be assigned next?
+    vars=assignments.keys() 
+    for var in vars:
+        if not assignments[var]:
+            return var
+    # change later to find var with smallest domain
+    #minDomainSize=100000
+    
+def is_complete(assignments):
+    isComplete=True
+    for val in assignments.values():
+        if not val:
+            isComplete = False
+    return isComplete
+
+# --------------------------------------------------------------
+#                             main
+# --------------------------------------------------------------
+
+
+Duck = namedtuple('Duck', 'bill tail')
+duck =Duck(bill='wide orange', tail='long')
+print(duck.bill)
+
 board = ((0,0,1,1,2,2,2,2),
          (3,3,3,1,1,2,2,2),
          (4,4,4,4,1,2,2,2),
@@ -55,12 +113,23 @@ X = init_variables(regionDomains.keys())
 #assignments where key is var from X
 assignments= init_assignments(X)
 
-# set of domains
-D= init_domains(X, regionDomains)
+# dictionary of  var: domain, set of coord 
+D = init_domains(X, regionDomains)
+
+#constraint = ()
+C=set()
+
+# use named tuple for CSP
+Duck = namedtuple('Duck', 'bill tail')
+duck =Duck(bill='wide orange', tail='long')
+print(duck.bill)
+
+CSP = namedtuple('CSP', 'X D C')
+csp = CSP(X=X, D=D, C=C)
 
 
 # constraints
-# star from same region have different locations 
-# no two touch from any region
-# only two othe star in same row / col from any region
+# star from same region have different locations- costar(var)
+# no two touch from any region-  neighbors(coord)
+# only two othe star in same row / col from any region row(coord), col(cood)
         

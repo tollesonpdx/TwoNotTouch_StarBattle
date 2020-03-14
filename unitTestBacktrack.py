@@ -64,6 +64,17 @@ class TestStringMethods(unittest.TestCase):
         self.assertIn((0,0), D['0A']) 
         self.assertIn((0,1), D['0A']) 
         self.assertIn((7,7), D['7A']) 
+    
+    def test_isCompleteReturnsTrueWhenAllKeysHaveVal(self):
+        self.assertTrue(bt.is_complete({1:'a', 2:3, 4:5}))
+
+    def test_isCompleteReturnsFalseWhenValIsNone(self):
+        self.assertFalse(bt.is_complete({1:2, 2:None, 4:5}))
+
+    def test_duck(self):
+        duck = bt.Duck(bill='wide orange', tail='long')
+        self.assertEqual(duck.bill, 'wide orange')
+
 
 #   def test_upper(self):
 #       self.assertEqual('foo'.upper(), 'FOO')

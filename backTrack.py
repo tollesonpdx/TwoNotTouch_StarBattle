@@ -51,21 +51,45 @@ def backtrack(assignments, csp):
     if is_complete(assignments):
         return assignments
     var = select_unassigned_var(csp, assignments)
-    for value in order_domain_values(var, assignment, csp):
+    for value in order_domain_values(var, assignments, csp):
         #if value is consistent with assignment then
-        #order_domain_values ensures consistency with assignment
+        # if empty will just fall through loop and return failusre 
 
         # add {var=value} to assignments
         assignments[var]=value
-        inferences = inferences(csp, var, assignment)
+
+        # inferecnes<-(csp, var, assignment) use to for arc consistency
+        inferences = inference(csp, var, assignments)
+
+        # if inferences not != failure
+        # check to make sure domains are not empty, will get caught next time if selecting vars with smallest domains
+            
+            #add inferecnes to assignment
+            #newInferences = inferecnes- constraints
+            #constraints = newInferecnes untion constraints
+
+            #result <- backTrack()
+
+            # if result not equal failusre
+                #return result
+            
+        #remove var=val and inferences from assignemnt 
+        # why is this not indented more since no inferences potentially
+    #return failsure
+
+
+
+
+
+def inference(csp, var, assignment):
+    return None
 
     
 #not tested
 def order_domain_values(var, assignment, csp):
     #what order should values be tried?
-    #don't try ones that are already taken
+    #don't try ones that are already taken.  arc consitency
     return csp.D[var] - csp.C
-    #return csp.D[var]
 
 # not tested
 def select_unassigned_var(csp, assignments):

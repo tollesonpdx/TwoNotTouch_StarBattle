@@ -119,12 +119,10 @@ class TestStringMethods(unittest.TestCase):
         listOfSets=[(0,0),(0,3),(0,6)]
         self.assertFalse(bt.notTooClose(listOfSets))
 
-    # not passing
     def test_notTooCloseReturnsFalseWhen3inCol(self):
         listOfSets=[(0,0),(3,0),(6,0)]
         self.assertFalse(bt.notTooClose(listOfSets))
 
-    
     def test_notTooCloseReturnsTrueWhen2inRow(self):
         listOfSets=[(0,0),(0,3),(5,5)]
         self.assertTrue(bt.notTooClose(listOfSets))
@@ -136,6 +134,19 @@ class TestStringMethods(unittest.TestCase):
     def test_notTooCloseReturnsTrueWhen1inCol(self):
         listOfSets=[(0,0),(2,2),(4,4)]
         self.assertTrue(bt.notTooClose(listOfSets))
+
+    def test_selectUnassignedVariable(self):
+        csp= bt.CSP(X={'1A', '1B', '2A', '2B'},
+        D={
+        '1A':{(0,0)},
+        '1B':{(0,0), (0,1)},
+        '2A':{(1,0), (1,1)},
+        '2B':{(1,0), (1,1)}},
+        C={})
+        assignment= bt.Assignment(bt.init_assignments(['1A', '1B', '2A', '2B']), set())
+        minVar= bt.select_unassigned_var(csp, assignment)
+        self.assertEqual(minVar, '1A')
+
 
     #def test_coordsW
 

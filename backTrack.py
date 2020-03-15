@@ -54,33 +54,49 @@ def backtrack(assignment, csp):
     var = select_unassigned_var(csp, assignment)
     for value in order_domain_values(var, assignment, csp):
         #if value is consistent with assignment then
-        # if empty will just fall through loop and return failusre 
+        if value_consistent_with_assignment(value, assignment):
 
-        # add {var=value} to assignment
-        assignment.vals[var]=value
+            # add {var=value} to assignment
+            assignment.vals[var]=value
 
-        # inferecnes<-(csp, var, assignment) use to for arc consistency
-        inferences = inference(csp, var, assignment)
+            # inferecnes<-(csp, var, assignment) use to for arc consistency
+            inferences = inference(csp, var, assignment)
 
-        # if inferences not != failure
-        # check to make sure domains are not empty, will get caught next time if selecting vars with smallest domains
+            # if inferences not != failure
+            # check to make sure domains are not empty, will get caught next time if selecting vars with smallest domains
             
             #add inferecnes to assignment
             #newInferences = inferecnes- constraints
             #constraints = newInferecnes untion constraints
 
-            #result <- backTrack()
+            #result <- backTrack(assignment, csp)
+            
+            #if result != failure
+                #return result
+            
+        #remove {var=val} and inferences from assignemnt 
+        # why is this not indented more since no inferences potentially
 
-#           # if result not equal failusre
-#               #return result
-#           
-#       #remove var=val and inferences from assignemnt 
-#       # why is this not indented more since no inferences potentially
-#   #return failsure
+    #return failsure
 
+def value_consistent_with_assignment(value, assignment):
+    """
+    applies constraint to value and assignment
+    input: value, assignment
+    output: bool
+    """
+    vals = list(assignment.vals.values())
+    vals.append(value)
+    #need to filter out none
+    vals = [val for val in vals if val]
+    return notTooClose(vals)
 
 #not tested
 def order_domain_values(var, assignment, csp):
+    """
+    returns values in domain that are arc consistent, 
+    assuming unavailable has been updated via forward propogation
+    """
     #what order should values be tried?
     #don't try ones that are already taken.  arc consitency
     return csp.D[var] - assignment.unavailable
@@ -88,12 +104,22 @@ def order_domain_values(var, assignment, csp):
 # not tested
 def select_unassigned_var(csp, assignment):
     # which variable should be assigned next?
+   #vars=assignment.vals.keys() 
+   #for var in vars:
+   #    if not assignment.vals[var]:
+   #        return var
+    # change later to find var with smallest domain
+    minDomainSize=100000
+    minVar=None
     vars=assignment.vals.keys() 
     for var in vars:
         if not assignment.vals[var]:
-            return var
-    # change later to find var with smallest domain
-    #minDomainSize=100000
+            domainSize= len(csp.D[var])
+            if domainSize < minDomainSize:
+                minDomainSize=domainSize
+                minVar= var
+    return minVar
+
     
 def is_complete(assignments):
     isComplete=True
@@ -207,54 +233,7 @@ def get_neighbors(coord):
 #                             main
 # --------------------------------------------------------------
 
-
 Duck = namedtuple('Duck', 'bill tail')
-duck =Duck(bill='wide orange', tail='long')
-print(duck.bill)
-
-board = ((0,0,1,1,2,2,2,2),
-         (3,3,3,1,1,2,2,2),
-         (4,4,4,4,1,2,2,2),
-         (4,4,4,4,4,4,2,2),
-         (5,6,6,6,4,4,2,2),
-         (5,6,6,6,6,6,6,6),
-         (5,5,7,7,7,7,6,6),
-         (7,7,7,7,7,7,7,7))
-
-maxRow = len(board)
-maxCol = len(board[0])
-
-regionDomains = region_domains(board)
-
-# set of variables- each variable is one of two stars in region
-X = init_variables(regionDomains.keys())
-
-#assignments where key is var from X
-assignments= init_assignments(X)
-
-# dictionary of  var: domain, set of coord 
-D = init_domains(X, regionDomains)
-
-#constraint = ()
-C=notTooClose
-
-# use named tuple for CSP
-Duck = namedtuple('Duck', 'bill tail')
-duck =Duck(bill='wide orange', tail='long')
-#print(duck.bill)
-
 CSP = namedtuple('CSP', 'X D C')
-csp = CSP(X=X, D=D, C=C)
-
-
-
 Assignment = namedtuple('Assignment', 'vals unavailable')
-assignment = Assignment({'1A':1, '1B':2}, {1,2})
-
-backtracking_search(csp)
-
-# constraints
-# star from same region have different locations- costar(var)
-# no two touch from any region-  neighbors(coord)
-# only two othe star in same row / col from any region row(coord), col(cood)
         

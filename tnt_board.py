@@ -1,6 +1,5 @@
-import time
+
 import copy
-import random
 
 EMPTY = '\U000025A1'
 STAR = '\U00002605'
@@ -35,7 +34,7 @@ class boardList:
          (5,5,7,7,7,7,6,6),
          (7,7,7,7,7,7,7,7))
     b = ((0,0,0,0,0,0,0,0,1,1),
-         (2,0,0,0,0,0,0,0,3,1),
+         (2,0,0,0,0,0,0,3,1,1),
          (2,2,2,2,3,3,3,3,1,1),
          (2,2,2,4,4,4,4,4,4,4),
          (2,2,5,5,5,4,4,4,4,6),
@@ -67,23 +66,24 @@ class board(object):
             for j in range(self.size):
                 item = row[j]
                 rl[item][1].append((i,j))
-        return rl
+        return tuple(rl)
     
-    def print_board(self):
+    def print_board(self, stars):
         print()
-        grid = [[" _" for i in range(self.size)]]
+        grid = []
         for i in range(self.size):
-            list1 = []
+            row = []
             for j in range(self.size * 2 +1):
-                if (j % 2) == 0: list1.append("|")
+                if (j % 2) == 0: row.append(" ")
                 else:
-                    if i == (j-1)/2:
+                    # if i == (j-1)/2:
+                    if ( (i,((j-1)/2)) in stars ):
                         value = "*"
                     else:
-                        value = "_"
+                        value = "O"
                     color = self.regionList[self.regions[i][int((j-1)/2)]][2]
-                    list1.append(color + value + bcolors.ENDC)
-            grid.append(list1)
+                    row.append(color + value + bcolors.ENDC)
+            grid.append(row)
         for row in grid:
             print("".join(row))
 
@@ -99,15 +99,21 @@ class board(object):
                 print(color + value + bcolors.ENDC, sep='', end='')
             print()
 
+
 if __name__ == "__main__":
-    boardA = board(boardList.a)
-    print('Board, in Tuples:\n',boardA.regions)
-    print('List of Regions:\n',boardA.regionList)
-    boardA.print_board()
-    boardA.print_board_2()
+
+    testStars = [(1,7),(6,4),(9,0)]
+    
+    if (0):
+        boardA = board(boardList.a)
+        print('Board, in Tuples:\n',boardA.regions)
+        print('List of Regions:\n',boardA.regionList)
+        boardA.print_board()
+        boardA.print_board_2()
 
     boardB = board(boardList.b)
-    print('Board, in Tuples:\n',boardB.regions)
-    print('List of Regions:\n',boardB.regionList)
-    boardB.print_board()
-    boardB.print_board_2()
+    if (0): 
+        print('Board, in Tuples:\n',boardB.regions)
+        print('List of Regions:\n',boardB.regionList)
+        boardB.print_board_2()
+    boardB.print_board(testStars)

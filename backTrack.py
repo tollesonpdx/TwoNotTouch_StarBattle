@@ -47,44 +47,38 @@ def backtracking_search(csp):
     return backtrack({}, csp)
 
 def backtrack(assignments, csp):
-    #if assignments is complete then return assignments
-    if is_complete(assignments):
-        return assignments
-    var = select_unassigned_var(csp, assignments)
-    for value in order_domain_values(var, assignments, csp):
-        #if value is consistent with assignment then
-        # if empty will just fall through loop and return failusre 
+    pass
+#   #if assignments is complete then return assignments
+#   if is_complete(assignments):
+#       return assignments
+#   var = select_unassigned_var(csp, assignments)
+#   for value in order_domain_values(var, assignments, csp):
+#       #if value is consistent with assignment then
+#       # if empty will just fall through loop and return failusre 
 
-        # add {var=value} to assignments
-        assignments[var]=value
+#       # add {var=value} to assignments
+#       assignments[var]=value
 
-        # inferecnes<-(csp, var, assignment) use to for arc consistency
-        inferences = inference(csp, var, assignments)
+#       # inferecnes<-(csp, var, assignment) use to for arc consistency
+#       inferences = inference(csp, var, assignments)
 
-        # if inferences not != failure
-        # check to make sure domains are not empty, will get caught next time if selecting vars with smallest domains
-            
-            #add inferecnes to assignment
-            #newInferences = inferecnes- constraints
-            #constraints = newInferecnes untion constraints
+#       # if inferences not != failure
+#       # check to make sure domains are not empty, will get caught next time if selecting vars with smallest domains
+#           
+#           #add inferecnes to assignment
+#           #newInferences = inferecnes- constraints
+#           #constraints = newInferecnes untion constraints
 
-            #result <- backTrack()
+#           #result <- backTrack()
 
-            # if result not equal failusre
-                #return result
-            
-        #remove var=val and inferences from assignemnt 
-        # why is this not indented more since no inferences potentially
-    #return failsure
-
-
-
+#           # if result not equal failusre
+#               #return result
+#           
+#       #remove var=val and inferences from assignemnt 
+#       # why is this not indented more since no inferences potentially
+#   #return failsure
 
 
-def inference(csp, var, assignment):
-    return None
-
-    
 #not tested
 def order_domain_values(var, assignment, csp):
     #what order should values be tried?
@@ -107,6 +101,107 @@ def is_complete(assignments):
         if not val:
             isComplete = False
     return isComplete
+
+def inference(csp, var, assignments):
+    inferences=set()
+    #get position
+    inferences.add(assignments[var])
+    #get neighbors
+
+    #check if row filled
+
+    #check of col filed
+
+    return inferences
+
+# --------------------------------------------------------------
+#                             constraint functions
+# --------------------------------------------------------------
+
+def notTooClose(coords):
+    """
+    constraint function
+    inmput list of vals currently assigned variables ++ new potential val
+    output bool if new var matches constraint
+    """
+    #make coord no set should overlap
+    noCoordsSame=no_coords_same(coords) 
+
+    # make sure no neighbors overlap
+    noCoordsAreNeighbors= no_coords_are_neighbors(coords)
+
+    #make sure only two in each row
+    #make sure only two in each col
+    noMoreThanTwo=no_more_than_two(coords)
+    
+    return noCoordsSame and noCoordsAreNeighbors and noMoreThanTwo
+
+def no_more_than_two(coords):
+    """
+    collumns and rows contain no more than two stars
+    """
+    rowCounts={}
+    colCounts={}
+    for coord in coords:
+        if coord[0] in rowCounts:
+            rowCounts[coord[0]] += 1
+        else:
+            rowCounts[coord[0]] = 1
+
+        if coord[1] in colCounts:
+            colCounts[coord[1]] += 1
+        else:
+            colCounts[coord[1]] = 1
+    for count in rowCounts.values():
+        if count > 2:
+            return False
+    for count in colCounts.values():
+        if count > 2:
+            return False
+    return True
+
+def no_coords_same(coords):
+    """
+    input: list of coords
+    output: bool
+    """
+    takenList=[{coord} for coord in coords]
+    s=set() 
+    for taken in takenList:
+        s= s.symmetric_difference(taken)
+    u=set()
+    for taken in takenList:
+        u= u.union(taken)
+    if s!= u:
+        #notTooClose = False
+        return False
+    return True
+
+def no_coords_are_neighbors(coords):
+    u = set(coords)
+
+    neighborGroups=[get_neighbors(coord) for coord in coords]
+    allNeighbors = set()
+    for neighbors in neighborGroups : 
+        for neighbor in neighbors:
+            if neighbor in u:
+                #notTooClose = False
+                return False
+            else:
+                allNeighbors.add(neighbor)
+    return True
+
+def get_neighbors(coord):
+    top = (coord[0]-1,coord[1])
+    topRight = (coord[0]-1,coord[1]+1)
+    topLeft = (coord[0]-1,coord[1]-1)
+    bottom = (coord[0]+1,coord[1])
+    bottomLeft = (coord[0]+1,coord[1]-1)
+    bottomRight = (coord[0]+1,coord[1]+1)
+    left = (coord[0],coord[1]-1)
+    right = (coord[0],coord[1]+1)
+    return [top, topRight, topLeft, bottom, bottomLeft, bottomRight, left, right] 
+
 
 # --------------------------------------------------------------
 #                             main
@@ -146,7 +241,7 @@ C=set()
 # use named tuple for CSP
 Duck = namedtuple('Duck', 'bill tail')
 duck =Duck(bill='wide orange', tail='long')
-print(duck.bill)
+#print(duck.bill)
 
 CSP = namedtuple('CSP', 'X D C')
 csp = CSP(X=X, D=D, C=C)

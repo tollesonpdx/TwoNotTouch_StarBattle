@@ -66,10 +66,12 @@ class TestStringMethods(unittest.TestCase):
         self.assertIn((7,7), D['7A']) 
     
     def test_isCompleteReturnsTrueWhenAllKeysHaveVal(self):
-        self.assertTrue(bt.is_complete({1:'a', 2:3, 4:5}))
+        assignment = bt.Assignment({1:'a', 2:3, 4:5}, set())
+        self.assertTrue(bt.is_complete(assignment))
 
     def test_isCompleteReturnsFalseWhenValIsNone(self):
-        self.assertFalse(bt.is_complete({1:2, 2:None, 4:5}))
+        assignment = bt.Assignment({1:2, 2:None, 4:5}, set())
+        self.assertFalse(bt.is_complete(assignment))
 
     def test_duck(self):
         duck = bt.Duck(bill='wide orange', tail='long')
@@ -86,7 +88,7 @@ class TestStringMethods(unittest.TestCase):
 
         var='1A'
 
-        assignments={'1A':(0,1)}
+        assignments=bt.Assignment({'1A':(0,1)}, set())
 
         self.assertIn((0,1), bt.inference(csp, var, assignments))
 

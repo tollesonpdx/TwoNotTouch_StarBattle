@@ -44,32 +44,32 @@ def init_domains(X, regionDomains):
 #         self.C = C
 
 def backtracking_search(csp):
-    return backtrack({}, csp)
+    assignment= Assignment(init_assignments(csp.X), set())
+    return backtrack(assignment, csp)
 
-def backtrack(assignments, csp):
-    pass
-#   #if assignments is complete then return assignments
-#   if is_complete(assignments):
-#       return assignments
-#   var = select_unassigned_var(csp, assignments)
-#   for value in order_domain_values(var, assignments, csp):
-#       #if value is consistent with assignment then
-#       # if empty will just fall through loop and return failusre 
+def backtrack(assignment, csp):
+    #if assignment is complete then return assignment
+    if is_complete(assignment):
+        return assignment
+    var = select_unassigned_var(csp, assignment)
+    for value in order_domain_values(var, assignment, csp):
+        #if value is consistent with assignment then
+        # if empty will just fall through loop and return failusre 
 
-#       # add {var=value} to assignments
-#       assignments[var]=value
+        # add {var=value} to assignment
+        assignment.vals[var]=value
 
-#       # inferecnes<-(csp, var, assignment) use to for arc consistency
-#       inferences = inference(csp, var, assignments)
+        # inferecnes<-(csp, var, assignment) use to for arc consistency
+        inferences = inference(csp, var, assignment)
 
-#       # if inferences not != failure
-#       # check to make sure domains are not empty, will get caught next time if selecting vars with smallest domains
-#           
-#           #add inferecnes to assignment
-#           #newInferences = inferecnes- constraints
-#           #constraints = newInferecnes untion constraints
+        # if inferences not != failure
+        # check to make sure domains are not empty, will get caught next time if selecting vars with smallest domains
+            
+            #add inferecnes to assignment
+            #newInferences = inferecnes- constraints
+            #constraints = newInferecnes untion constraints
 
-#           #result <- backTrack()
+            #result <- backTrack()
 
 #           # if result not equal failusre
 #               #return result
@@ -83,21 +83,21 @@ def backtrack(assignments, csp):
 def order_domain_values(var, assignment, csp):
     #what order should values be tried?
     #don't try ones that are already taken.  arc consitency
-    return csp.D[var] - csp.C
+    return csp.D[var] - assignment.unavailable
 
 # not tested
-def select_unassigned_var(csp, assignments):
+def select_unassigned_var(csp, assignment):
     # which variable should be assigned next?
-    vars=assignments.keys() 
+    vars=assignment.vals.keys() 
     for var in vars:
-        if not assignments[var]:
+        if not assignment.vals[var]:
             return var
     # change later to find var with smallest domain
     #minDomainSize=100000
     
 def is_complete(assignments):
     isComplete=True
-    for val in assignments.values():
+    for val in assignments.vals.values():
         if not val:
             isComplete = False
     return isComplete
@@ -105,7 +105,7 @@ def is_complete(assignments):
 def inference(csp, var, assignments):
     inferences=set()
     #get position
-    inferences.add(assignments[var])
+    inferences.add(assignments.vals[var])
     #get neighbors
 
     #check if row filled
@@ -236,7 +236,7 @@ assignments= init_assignments(X)
 D = init_domains(X, regionDomains)
 
 #constraint = ()
-C=set()
+C=notTooClose
 
 # use named tuple for CSP
 Duck = namedtuple('Duck', 'bill tail')
@@ -246,6 +246,12 @@ duck =Duck(bill='wide orange', tail='long')
 CSP = namedtuple('CSP', 'X D C')
 csp = CSP(X=X, D=D, C=C)
 
+
+
+Assignment = namedtuple('Assignment', 'vals unavailable')
+assignment = Assignment({'1A':1, '1B':2}, {1,2})
+
+backtracking_search(csp)
 
 # constraints
 # star from same region have different locations- costar(var)

@@ -147,6 +147,117 @@ class TestStringMethods(unittest.TestCase):
         minVar= bt.select_unassigned_var(csp, assignment)
         self.assertEqual(minVar, '1A')
 
+    def test_getRow(self):
+        csp= bt.CSP(X={'1A', '1B', '2A', '2B'},
+        D={
+        '1A':{(0,0)},
+        '1B':{(0,0), (0,1)},
+        '2A':{(1,0), (1,1)},
+        '2B':{(1,0), (1,1)}},
+        C=bt.notTooClose)
+
+        row= bt.get_row((0,0), csp)
+        self.assertSetEqual(row, {(0,0),(0,1)})
+
+    def test_getCol(self):
+        csp= bt.CSP(X={'1A', '1B', '2A', '2B'},
+        D={
+        '1A':{(0,0)},
+        '1B':{(0,0), (0,1)},
+        '2A':{(1,0), (1,1)},
+        '2B':{(1,0), (1,1)}},
+        C=bt.notTooClose)
+
+        row= bt.get_col((0,0), csp)
+        self.assertSetEqual(row, {(0,0),(1,0)})
+
+    def test_inferencesReturnsNeighborsAndPosOfNewCoord(self):
+        csp= bt.CSP(X={'1A', '1B', '2A', '2B'},
+        D={
+        '1A':{(0,0), (0,1), (0,2)},
+        '1B':{(0,0), (0,1), (0,2)},
+        '2A':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)},
+        '2B':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)}},
+        C=bt.notTooClose)
+        vars=bt.init_variables([1,2])
+        assignments=bt.init_assignments(vars)
+        assignment = bt.Assignment(assignments,set())
+        assignment.vals['1A']=(0,0)
+        inferences = bt.inference(csp, '1A', assignment)
+        self.assertIn((0,0), inferences)
+        self.assertIn((0,1), inferences)
+        self.assertIn((1,0), inferences)
+        self.assertIn((1,1), inferences)
+
+    def test_inferencesReturnsEightNeighborsAndPosOfNewCoord(self):
+        csp= bt.CSP(X={'1A', '1B', '2A', '2B'},
+        D={
+        '1A':{(0,0), (0,1), (0,2)},
+        '1B':{(0,0), (0,1), (0,2)},
+        '2A':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)},
+        '2B':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)}},
+        C=bt.notTooClose)
+        vars=bt.init_variables([1,2])
+        assignments=bt.init_assignments(vars)
+        assignment = bt.Assignment(assignments,set())
+        assignment.vals['2A']=(1,1)
+        inferences = bt.inference(csp, '2A', assignment)
+        self.assertIn((0,0), inferences)
+        self.assertIn((0,1), inferences)
+        self.assertIn((0,2), inferences)
+        self.assertIn((1,0), inferences)
+        self.assertIn((1,1), inferences)
+        self.assertIn((1,2), inferences)
+        self.assertIn((2,0), inferences)
+        self.assertIn((2,1), inferences)
+        self.assertIn((2,2), inferences)
+
+    def test_inferencesReturnsRowsOfNewCoord(self):
+        csp= bt.CSP(X={'1A', '1B', '2A', '2B', '3A', '3B'},
+        D={
+        '1A':{(0,0), (0,1), (0,2)},
+        '1B':{(0,0), (0,1), (0,2)},
+        '2A':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)},
+        '2B':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)},
+        '3A':{(3,0), (3,1), (3,2), (3,3), (2,3), (1,3), (0,3), (4,0), (4,1), (4,2), (4,3), (4,4), (3,4), (2,4), (1,4), (0,4)},
+        '3B':{(3,0), (3,1), (3,2), (3,3), (2,3), (1,3), (0,3), (4,0), (4,1), (4,2), (4,3), (4,4), (3,4), (2,4), (1,4), (0,4)}},
+        C=bt.notTooClose)
+
+        vars=bt.init_variables([1,2])
+
+        assignments=bt.init_assignments(vars)
+        assignment = bt.Assignment(assignments,set())
+        assignment.vals['1A']=(0,0)
+        assignment.vals['3A']=(0,4)
+
+        inferences = bt.inference(csp, '3A', assignment)
+        self.assertIn((0,3), inferences)
+        self.assertIn((1,3), inferences)
+        self.assertIn((1,4), inferences)
+        self.assertIn((0,4), inferences)
+        self.assertIn((0,2), inferences)
+
+
+    def test_inferencesReturnsColOfNewCoord(self):
+        csp= bt.CSP(X={'1A', '1B', '2A', '2B', '3A', '3B'},
+        D={
+        '1A':{(0,0), (0,1), (0,2)},
+        '1B':{(0,0), (0,1), (0,2)},
+        '2A':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)},
+        '2B':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)},
+        '3A':{(3,0), (3,1), (3,2), (3,3), (2,3), (1,3), (0,3), (4,0), (4,1), (4,2), (4,3), (4,4), (3,4), (2,4), (1,4), (0,4)},
+        '3B':{(3,0), (3,1), (3,2), (3,3), (2,3), (1,3), (0,3), (4,0), (4,1), (4,2), (4,3), (4,4), (3,4), (2,4), (1,4), (0,4)}},
+        C=bt.notTooClose)
+
+        vars=bt.init_variables([1,2])
+
+        assignments=bt.init_assignments(vars)
+        assignment = bt.Assignment(assignments,set())
+        assignment.vals['3B']=(0,4)
+        assignment.vals['3A']=(4,4)
+
+        inferences = bt.inference(csp, '3A', assignment)
+        self.assertIn((2,4), inferences)
 
     #def test_coordsW
 

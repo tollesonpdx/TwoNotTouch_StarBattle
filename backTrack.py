@@ -104,11 +104,6 @@ def order_domain_values(var, assignment, csp):
 # not tested
 def select_unassigned_var(csp, assignment):
     # which variable should be assigned next?
-   #vars=assignment.vals.keys() 
-   #for var in vars:
-   #    if not assignment.vals[var]:
-   #        return var
-    # change later to find var with smallest domain
     minDomainSize=100000
     minVar=None
     vars=assignment.vals.keys() 
@@ -128,17 +123,55 @@ def is_complete(assignments):
             isComplete = False
     return isComplete
 
-def inference(csp, var, assignments):
+def inference(csp, var, assignment):
     inferences=set()
+    newCoord = assignment.vals[var]
+
     #get position
-    inferences.add(assignments.vals[var])
-    #get neighbors
+    inferences.add(newCoord)
+
+    #add neighbors
+    inferences = inferences.union(set(get_neighbors(newCoord)))
 
     #check if row filled
+    coords = list(assignment.vals.values())
+    coords = [coord for coord in coords if coord]
+
+    rowCount=0
+    for coord in coords:
+        if coord[0] == newCoord[0]:
+            rowCount += 1
+
+    if rowCount == 2:
+        inferences = inferences.union(get_row(newCoord, csp))
 
     #check of col filed
+    colCount=0
+    for coord in coords:
+        if coord[1] == newCoord[1]:
+            colCount += 1
+
+    if colCount == 2:
+        inferences = inferences.union(get_col(newCoord, csp))
 
     return inferences
+
+def get_row(newCoord, csp):
+    #coords are eiter in assignments
+    allCoords=set()
+    domains= csp.D.values()
+    for d in domains:
+        allCoords = allCoords.union(d)
+
+    return {coord for coord in allCoords if coord[0] == newCoord[0]}
+
+def get_col(newCoord, csp):
+    allCoords=set()
+    domains= csp.D.values()
+    for d in domains:
+        allCoords = allCoords.union(d)
+
+    return {coord for coord in allCoords if coord[1] == newCoord[1]}
 
 # --------------------------------------------------------------
 #                             constraint functions
@@ -166,24 +199,36 @@ def no_more_than_two(coords):
     """
     collumns and rows contain no more than two stars
     """
+    return rows_have_two_or_less(coords) and cols_have_two_or_less(coords)
+
+def rows_have_two_or_less(coords):
     rowCounts={}
-    colCounts={}
+
     for coord in coords:
         if coord[0] in rowCounts:
             rowCounts[coord[0]] += 1
         else:
             rowCounts[coord[0]] = 1
 
+    for count in rowCounts.values():
+        if count > 2:
+            return False
+
+    return True
+
+def cols_have_two_or_less(coords):
+    colCounts={}
+
+    for coord in coords:
         if coord[1] in colCounts:
             colCounts[coord[1]] += 1
         else:
             colCounts[coord[1]] = 1
-    for count in rowCounts.values():
-        if count > 2:
-            return False
+
     for count in colCounts.values():
         if count > 2:
             return False
+            
     return True
 
 def no_coords_same(coords):

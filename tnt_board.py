@@ -59,7 +59,7 @@ class board(object):
                 [5,[], bcolors.CRED],
                 [6,[], bcolors.CVIOLET],
                 [7,[], bcolors.CYELLOW],
-                [8,[], bcolors.CBLACK],
+                [8,[], bcolors.CBEIGE],
                 [9,[], bcolors.CGREEN2]]
         for i in range(self.size):
             row = self.regions[i]
@@ -69,7 +69,7 @@ class board(object):
         return tuple(rl)
     
     def print_board(self, stars):
-        print()
+        # print()
         grid = []
         for i in range(self.size):
             row = []

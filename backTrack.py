@@ -66,18 +66,22 @@ def backtrack(assignment, csp):
             # check to make sure domains are not empty, will get caught next time if selecting vars with smallest domains
             
             #add inferecnes to assignment
-            #newInferences = inferecnes- constraints
-            #constraints = newInferecnes untion constraints
+            newUnavailable = inferences - assignment.unavailable
+            assignment.unavailable = assignment.unavailable | newUnavailable
 
             #result <- backTrack(assignment, csp)
-            
-            #if result != failure
-                #return result
-            
-        #remove {var=val} and inferences from assignemnt 
-        # why is this not indented more since no inferences potentially
+            result = backtrack(assignment, csp)
+
+            #if result != failsure 
+            if result:
+                return result
+
+            #remove {var=val} and inferences from assignemnt 
+            assignment.vals[var]=None
+            assignment.unavailable = assignment.unavailable - newUnavailable
 
     #return failsure
+    return None
 
 def value_consistent_with_assignment(value, assignment):
     """
@@ -118,6 +122,7 @@ def select_unassigned_var(csp, assignment):
     
 def is_complete(assignments):
     isComplete=True
+
     for val in assignments.vals.values():
         if not val:
             isComplete = False
@@ -274,11 +279,17 @@ def get_neighbors(coord):
     return [top, topRight, topLeft, bottom, bottomLeft, bottomRight, left, right] 
 
 
+class Assignment():
+    def __init__(self, vals, unv):
+        self.vals=vals
+        self.unavailable=unv
+
 # --------------------------------------------------------------
 #                             main
 # --------------------------------------------------------------
 
 Duck = namedtuple('Duck', 'bill tail')
 CSP = namedtuple('CSP', 'X D C')
-Assignment = namedtuple('Assignment', 'vals unavailable')
+
+#Assignment = namedtuple('Assignment', 'vals unavailable')
         

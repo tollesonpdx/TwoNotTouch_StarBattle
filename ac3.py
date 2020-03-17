@@ -1,12 +1,12 @@
 from itertools import permutations, chain, islice
 
 class csp():
-    def __init__(self, board, D=0, C=0):
+    def __init__(self, board):
         self.board = board
         self.vars = self.get_vars(board)
         self.arcs = self.make_arcs()
-        self.domain = D
-        self.constraints = C
+        self.domain = self.create_domain
+        self.constraints = self.create_constraints
 
     def get_vars(self, board):
         vars = []
@@ -34,8 +34,6 @@ class csp():
                     arc.append(c2)
                     if arc not in arcs:
                         arcs.append(arc)
-        print(arcs)
-        print(len(arcs))
         return arcs
 
     def create_domain(self):

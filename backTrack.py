@@ -265,7 +265,7 @@ def get_neighbors(coord):
     return [top, topRight, topLeft, bottom, bottomLeft, bottomRight, left, right] 
 
 # --------------------------------------------------------
-# transforming boad into csp
+# transforming board into csp
 # --------------------------------------------------------
 
 def region_domains(board):

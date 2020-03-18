@@ -115,7 +115,7 @@ class specimen(object):
                 sadRegions += 1
         
         if hapsburgFlag == True:
-            fitnessScore = .000001
+            fitnessScore = 0
         else:
             fitnessScore = maxFitness - adjoiningStars - sadRegions
         
@@ -179,7 +179,7 @@ class Population(object):
         generations = 1
         for gen in range(1,numIts+1):
             if (0 and v): print('\n\nGeneration',gen)
-            self.brood, self.broodFitness, solved = self.callTheStork(popSize, mutPct, brdgme)
+            self.brood, self.broodFitness, solved = self.callTheStork(popSize, mutPct, gen, brdgme)
             if (solved): break
             self.performanceHistory.append((self.broodFitness/popSize))
             self.familyTree.append([generations,self.brood])
@@ -192,13 +192,16 @@ class Population(object):
             print('\ngenerating performance history plot')
         self.plotResults(generations)
         
-    def callTheStork(self, popSize, mutPct, brdgme):
+    def callTheStork(self, popSize, mutPct, gen, brdgme):
         """https://youtu.be/qScWb1HearI"""
         newBrood = []
         newBroodFitness = 0
         for i in range(int(popSize/2)):
             specA, specB = self.naturalSelection()
-            specC, specD = self.crossoverSpecimens(specA, specB)
+            if (1 and gen < 40):
+                specC, specD = self.crossoverSpecimens(specA, specB)
+            else:
+                specC, specD = specA, specB
             specC.mutateSpecimen(mutPct)
             specD.mutateSpecimen(mutPct)
             specC.fitness(brdgme, False)
@@ -232,12 +235,15 @@ class Population(object):
     def crossoverSpecimens(self, specA, specB):
         # starBatch = random.randint(1,2)
         # r = random.randint(0,9)
-        # specA.spec[starBatch] = specA.spec[starBatch][0:r] + specB.spec[starBatch][r:10]
+        # temp = specA.spec[starBatch][0:r] + specB.spec[starBatch][r:10]
         # specB.spec[starBatch] = specB.spec[starBatch][0:r] + specA.spec[starBatch][r:10]
+        # specA.spec[starBatch] = temp
+       
         starBatch = random.randint(1,2)
         temp = specA.spec[starBatch]
         specA.spec[starBatch] = specB.spec[starBatch]
         specB.spec[starBatch] = specA.spec[starBatch]
+       
         return specA, specB
 
     def printAndDestroyBrood(self, brdgme):
@@ -252,7 +258,7 @@ class Population(object):
     def plotResults(self, gens):
         
         # plot the actual fitness measurements
-        plt.plot(range(0,gens),self.performanceHistory,'o', alpha=0.3, label='Average Fitness Measurement')
+        plt.plot(range(0,gens),self.performanceHistory,'o-', alpha=0.3, label='Average Fitness Measurement')
         
         if (1):  # plot a moving average 
             data = {'periods':range(0,gens), 'scores':self.performanceHistory}
@@ -286,8 +292,8 @@ if __name__ == '__main__':
         v = bool(input("enter True to trigger verbose reporting, otherwise leave blank:  "))
     else:
         populationSize = 100
-        numIterations = 1000
-        mutationPct = 0.50
+        numIterations = 100
+        mutationPct = 0.90
         maxFitness = 55 # total number of adjointing pairs of stars plus empty regions
         gk = True
         solutionHalt = True

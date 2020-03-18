@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Stupid Temp Code Runner Files
+tempCodeRunnerFile.py
+
+# Visual Studio bullshit
+.vscode/
+
+# whatever this is
+__pycache__/

@@ -73,24 +73,30 @@ class TestStringMethods(unittest.TestCase):
         assignment = bt.Assignment({1:2, 2:None, 4:5}, set())
         self.assertFalse(bt.is_complete(assignment))
 
-    def test_duck(self):
-        duck = bt.Duck(bill='wide orange', tail='long')
-        self.assertEqual(duck.bill, 'wide orange')
-
     def test_inference_returns_assignments(self):
-        csp= bt.CSP(X={'1A', '1B', '2A', '2B'},
-        D={
+        board = ((1, 2, 2, 2, 2, 2, 2, 2, 2),
+        (1, 2, 2, 2, 2, 4, 4, 4, 2),
+        (1, 3, 3, 3, 3, 4, 4, 4, 2),
+        (1, 3, 5, 3, 5, 4, 6, 4, 9),
+        (1, 3, 5, 5, 5, 4, 6, 4, 9),
+        (1, 3, 5, 7, 5, 9, 6, 9, 9),
+        (1, 1, 1, 7, 7, 9, 9, 9, 8),
+        (1, 1, 7, 7, 8, 8, 8, 8, 8),
+        (1, 1, 1, 7, 8, 8, 8, 8, 8))
+        csp = bt.CSP(board)
+
+        csp.X={'1A', '1B', '2A', '2B'}
+        csp.D={
         '1A':{(0,0), (0,1)},
         '1B':{(0,0), (0,1)},
         '2A':{(1,0), (1,1)},
-        '2B':{(1,0), (1,1)}},
-        C={})
-
+        '2B':{(1,0), (1,1)}}
+        
         var='1A'
 
         assignments=bt.Assignment({'1A':(0,1)}, set())
 
-        self.assertIn((0,1), bt.inference(csp, var, assignments))
+        self.assertIn((0,1), csp.inference(var, assignments))
 
 #---------------------------------------------------------------
 #                      constraint function tests
@@ -136,72 +142,124 @@ class TestStringMethods(unittest.TestCase):
         self.assertTrue(bt.notTooClose(listOfSets))
 
     def test_selectUnassignedVariable(self):
-        csp= bt.CSP(X={'1A', '1B', '2A', '2B'},
-        D={
+        board = ((1, 2, 2, 2, 2, 2, 2, 2, 2),
+                (1, 2, 2, 2, 2, 4, 4, 4, 2),
+                (1, 3, 3, 3, 3, 4, 4, 4, 2),
+                (1, 3, 5, 3, 5, 4, 6, 4, 9),
+                (1, 3, 5, 5, 5, 4, 6, 4, 9),
+                (1, 3, 5, 7, 5, 9, 6, 9, 9),
+                (1, 1, 1, 7, 7, 9, 9, 9, 8),
+                (1, 1, 7, 7, 8, 8, 8, 8, 8),
+                (1, 1, 1, 7, 8, 8, 8, 8, 8))
+        csp = bt.CSP(board)
+
+        csp.X={'1A', '1B', '2A', '2B'}
+        csp.D={
         '1A':{(0,0)},
         '1B':{(0,0), (0,1)},
         '2A':{(1,0), (1,1)},
-        '2B':{(1,0), (1,1)}},
-        C={})
+        '2B':{(1,0), (1,1)}}
         assignment= bt.Assignment(bt.init_assignments(['1A', '1B', '2A', '2B']), set())
-        minVar= bt.select_unassigned_var(csp, assignment)
+        minVar= csp.select_unassigned_var(assignment)
         self.assertEqual(minVar, '1A')
 
     def test_getRow(self):
-        csp= bt.CSP(X={'1A', '1B', '2A', '2B'},
-        D={
+        board = ((1, 2, 2, 2, 2, 2, 2, 2, 2),
+                (1, 2, 2, 2, 2, 4, 4, 4, 2),
+                (1, 3, 3, 3, 3, 4, 4, 4, 2),
+                (1, 3, 5, 3, 5, 4, 6, 4, 9),
+                (1, 3, 5, 5, 5, 4, 6, 4, 9),
+                (1, 3, 5, 7, 5, 9, 6, 9, 9),
+                (1, 1, 1, 7, 7, 9, 9, 9, 8),
+                (1, 1, 7, 7, 8, 8, 8, 8, 8),
+                (1, 1, 1, 7, 8, 8, 8, 8, 8))
+        csp = bt.CSP(board)
+
+        csp.X={'1A', '1B', '2A', '2B'}
+        csp.D={
         '1A':{(0,0)},
         '1B':{(0,0), (0,1)},
         '2A':{(1,0), (1,1)},
-        '2B':{(1,0), (1,1)}},
-        C=bt.notTooClose)
+        '2B':{(1,0), (1,1)}}
 
-        row= bt.get_row((0,0), csp)
+        row= csp.get_row((0,0))
         self.assertSetEqual(row, {(0,0),(0,1)})
 
     def test_getCol(self):
-        csp= bt.CSP(X={'1A', '1B', '2A', '2B'},
-        D={
+        board = ((1, 2, 2, 2, 2, 2, 2, 2, 2),
+                (1, 2, 2, 2, 2, 4, 4, 4, 2),
+                (1, 3, 3, 3, 3, 4, 4, 4, 2),
+                (1, 3, 5, 3, 5, 4, 6, 4, 9),
+                (1, 3, 5, 5, 5, 4, 6, 4, 9),
+                (1, 3, 5, 7, 5, 9, 6, 9, 9),
+                (1, 1, 1, 7, 7, 9, 9, 9, 8),
+                (1, 1, 7, 7, 8, 8, 8, 8, 8),
+                (1, 1, 1, 7, 8, 8, 8, 8, 8))
+        csp = bt.CSP(board)
+
+        csp.X={'1A', '1B', '2A', '2B'}
+        csp.D={
         '1A':{(0,0)},
         '1B':{(0,0), (0,1)},
         '2A':{(1,0), (1,1)},
-        '2B':{(1,0), (1,1)}},
-        C=bt.notTooClose)
+        '2B':{(1,0), (1,1)}}
 
-        row= bt.get_col((0,0), csp)
+        row= csp.get_col((0,0))
         self.assertSetEqual(row, {(0,0),(1,0)})
 
     def test_inferencesReturnsNeighborsAndPosOfNewCoord(self):
-        csp= bt.CSP(X={'1A', '1B', '2A', '2B'},
-        D={
+        board = ((1, 2, 2, 2, 2, 2, 2, 2, 2),
+                (1, 2, 2, 2, 2, 4, 4, 4, 2),
+                (1, 3, 3, 3, 3, 4, 4, 4, 2),
+                (1, 3, 5, 3, 5, 4, 6, 4, 9),
+                (1, 3, 5, 5, 5, 4, 6, 4, 9),
+                (1, 3, 5, 7, 5, 9, 6, 9, 9),
+                (1, 1, 1, 7, 7, 9, 9, 9, 8),
+                (1, 1, 7, 7, 8, 8, 8, 8, 8),
+                (1, 1, 1, 7, 8, 8, 8, 8, 8))
+        csp = bt.CSP(board)
+
+        csp.X={'1A', '1B', '2A', '2B'}
+        csp.D={
         '1A':{(0,0), (0,1), (0,2)},
         '1B':{(0,0), (0,1), (0,2)},
         '2A':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)},
-        '2B':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)}},
-        C=bt.notTooClose)
+        '2B':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)}}
+
         vars=bt.init_variables([1,2])
         assignments=bt.init_assignments(vars)
         assignment = bt.Assignment(assignments,set())
         assignment.vals['1A']=(0,0)
-        inferences = bt.inference(csp, '1A', assignment)
+        inferences = csp.inference('1A', assignment)
         self.assertIn((0,0), inferences)
         self.assertIn((0,1), inferences)
         self.assertIn((1,0), inferences)
         self.assertIn((1,1), inferences)
 
     def test_inferencesReturnsEightNeighborsAndPosOfNewCoord(self):
-        csp= bt.CSP(X={'1A', '1B', '2A', '2B'},
-        D={
+        board = ((1, 2, 2, 2, 2, 2, 2, 2, 2),
+                (1, 2, 2, 2, 2, 4, 4, 4, 2),
+                (1, 3, 3, 3, 3, 4, 4, 4, 2),
+                (1, 3, 5, 3, 5, 4, 6, 4, 9),
+                (1, 3, 5, 5, 5, 4, 6, 4, 9),
+                (1, 3, 5, 7, 5, 9, 6, 9, 9),
+                (1, 1, 1, 7, 7, 9, 9, 9, 8),
+                (1, 1, 7, 7, 8, 8, 8, 8, 8),
+                (1, 1, 1, 7, 8, 8, 8, 8, 8))
+        csp = bt.CSP(board)
+
+        csp.X={'1A', '1B', '2A', '2B'}
+        csp.D={
         '1A':{(0,0), (0,1), (0,2)},
         '1B':{(0,0), (0,1), (0,2)},
         '2A':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)},
-        '2B':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)}},
-        C=bt.notTooClose)
+        '2B':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)}}
+
         vars=bt.init_variables([1,2])
         assignments=bt.init_assignments(vars)
         assignment = bt.Assignment(assignments,set())
         assignment.vals['2A']=(1,1)
-        inferences = bt.inference(csp, '2A', assignment)
+        inferences = csp.inference('2A', assignment)
         self.assertIn((0,0), inferences)
         self.assertIn((0,1), inferences)
         self.assertIn((0,2), inferences)
@@ -213,15 +271,25 @@ class TestStringMethods(unittest.TestCase):
         self.assertIn((2,2), inferences)
 
     def test_inferencesReturnsRowsOfNewCoord(self):
-        csp= bt.CSP(X={'1A', '1B', '2A', '2B', '3A', '3B'},
-        D={
+        board = ((1, 2, 2, 2, 2, 2, 2, 2, 2),
+                (1, 2, 2, 2, 2, 4, 4, 4, 2),
+                (1, 3, 3, 3, 3, 4, 4, 4, 2),
+                (1, 3, 5, 3, 5, 4, 6, 4, 9),
+                (1, 3, 5, 5, 5, 4, 6, 4, 9),
+                (1, 3, 5, 7, 5, 9, 6, 9, 9),
+                (1, 1, 1, 7, 7, 9, 9, 9, 8),
+                (1, 1, 7, 7, 8, 8, 8, 8, 8),
+                (1, 1, 1, 7, 8, 8, 8, 8, 8))
+        csp = bt.CSP(board)
+
+        csp.X={'1A', '1B', '2A', '2B', '3A', '3B'}
+        csp.D={
         '1A':{(0,0), (0,1), (0,2)},
         '1B':{(0,0), (0,1), (0,2)},
         '2A':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)},
         '2B':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)},
         '3A':{(3,0), (3,1), (3,2), (3,3), (2,3), (1,3), (0,3), (4,0), (4,1), (4,2), (4,3), (4,4), (3,4), (2,4), (1,4), (0,4)},
-        '3B':{(3,0), (3,1), (3,2), (3,3), (2,3), (1,3), (0,3), (4,0), (4,1), (4,2), (4,3), (4,4), (3,4), (2,4), (1,4), (0,4)}},
-        C=bt.notTooClose)
+        '3B':{(3,0), (3,1), (3,2), (3,3), (2,3), (1,3), (0,3), (4,0), (4,1), (4,2), (4,3), (4,4), (3,4), (2,4), (1,4), (0,4)}}
 
         vars=bt.init_variables([1,2])
 
@@ -230,7 +298,7 @@ class TestStringMethods(unittest.TestCase):
         assignment.vals['1A']=(0,0)
         assignment.vals['3A']=(0,4)
 
-        inferences = bt.inference(csp, '3A', assignment)
+        inferences = csp.inference( '3A', assignment)
         self.assertIn((0,3), inferences)
         self.assertIn((1,3), inferences)
         self.assertIn((1,4), inferences)
@@ -239,15 +307,25 @@ class TestStringMethods(unittest.TestCase):
 
 
     def test_inferencesReturnsColOfNewCoord(self):
-        csp= bt.CSP(X={'1A', '1B', '2A', '2B', '3A', '3B'},
-        D={
+        board = ((1, 2, 2, 2, 2, 2, 2, 2, 2),
+                (1, 2, 2, 2, 2, 4, 4, 4, 2),
+                (1, 3, 3, 3, 3, 4, 4, 4, 2),
+                (1, 3, 5, 3, 5, 4, 6, 4, 9),
+                (1, 3, 5, 5, 5, 4, 6, 4, 9),
+                (1, 3, 5, 7, 5, 9, 6, 9, 9),
+                (1, 1, 1, 7, 7, 9, 9, 9, 8),
+                (1, 1, 7, 7, 8, 8, 8, 8, 8),
+                (1, 1, 1, 7, 8, 8, 8, 8, 8))
+        csp = bt.CSP(board)
+
+        csp.X={'1A', '1B', '2A', '2B', '3A', '3B'}
+        csp.D={
         '1A':{(0,0), (0,1), (0,2)},
         '1B':{(0,0), (0,1), (0,2)},
         '2A':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)},
         '2B':{(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)},
         '3A':{(3,0), (3,1), (3,2), (3,3), (2,3), (1,3), (0,3), (4,0), (4,1), (4,2), (4,3), (4,4), (3,4), (2,4), (1,4), (0,4)},
-        '3B':{(3,0), (3,1), (3,2), (3,3), (2,3), (1,3), (0,3), (4,0), (4,1), (4,2), (4,3), (4,4), (3,4), (2,4), (1,4), (0,4)}},
-        C=bt.notTooClose)
+        '3B':{(3,0), (3,1), (3,2), (3,3), (2,3), (1,3), (0,3), (4,0), (4,1), (4,2), (4,3), (4,4), (3,4), (2,4), (1,4), (0,4)}}
 
         vars=bt.init_variables([1,2])
 
@@ -256,7 +334,7 @@ class TestStringMethods(unittest.TestCase):
         assignment.vals['3B']=(0,4)
         assignment.vals['3A']=(4,4)
 
-        inferences = bt.inference(csp, '3A', assignment)
+        inferences = csp.inference( '3A', assignment)
         self.assertIn((2,4), inferences)
 
     #def test_coordsW

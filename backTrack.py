@@ -1,87 +1,146 @@
 
 from collections import namedtuple
 
-def region_domains(board):
-    """
-    make list of tuples for each region to construct domains
-    return dictionary of region : set of coord pairs
-    """
-    regionCoords={}    
-    rowIndex=0
-    for row in board:
-        colIndex=0
-        for colVal in row:
-            if colVal in regionCoords:
-                regionCoords[colVal].add((rowIndex,colIndex))
-            else:
-                regionCoords[colVal]=set()
-                regionCoords[colVal].add((rowIndex,colIndex))
-            colIndex +=1
-        rowIndex +=1
-    return regionCoords
+class CSP(): 
+    def __init__(self, board):
+        self.X=None
+        self.D=None
+        self.C=None
+        #self.assignment=None
 
-def init_variables(regions):
-    vars = set()
-    for region in regions:
-        vars.add(str(region)+"A")
-        vars.add(str(region)+"B")
-    return vars
+        regionDomains = region_domains(board)
 
-def init_assignments(vars):
-    return {var: None for var in vars}
+        # set of variables- each variable is one of two stars in region
+        self.X = init_variables(regionDomains.keys())
 
-def init_domains(X, regionDomains):
-    D = {}
-    for var in X:
-        D[var] = set()
-        D[var]= {coord for coord in regionDomains[int(var[0])]}
-    return D
+        # dictionary of  var: domain, set of coord 
+        self.D = init_domains(self.X, regionDomains)
 
-# def class CSP():
-#     def __init__(self, X, D, C):
-#         self.X = X
-#         self.D = D
-#         self.C = C
+        #constraint = ()
+        self.C=notTooClose
 
-def backtracking_search(csp):
-    assignment= Assignment(init_assignments(csp.X), set())
-    return backtrack(assignment, csp)
+    def backtracking_search(self):
+        assignment= Assignment(init_assignments(self.X), set())
+        return self.backtrack(assignment)
 
-def backtrack(assignment, csp):
-    #if assignment is complete then return assignment
-    if is_complete(assignment):
-        return assignment
-    var = select_unassigned_var(csp, assignment)
-    for value in order_domain_values(var, assignment, csp):
-        #if value is consistent with assignment then
-        if value_consistent_with_assignment(value, assignment):
+    def backtrack(self, assignment):
+        #if assignment is complete then return assignment
+        if is_complete(assignment):
+            return assignment
+        var = self.select_unassigned_var(assignment)
 
-            # add {var=value} to assignment
-            assignment.vals[var]=value
+        for value in self.order_domain_values(var, assignment):
+            #if value is consistent with assignment then
+            if value_consistent_with_assignment(value, assignment):
 
-            # inferecnes<-(csp, var, assignment) use to for arc consistency
-            inferences = inference(csp, var, assignment)
+                # add {var=value} to assignment
+                assignment.vals[var]=value
 
-            # if inferences not != failure
-            # check to make sure domains are not empty, will get caught next time if selecting vars with smallest domains
-            
-            #add inferecnes to assignment
-            newUnavailable = inferences - assignment.unavailable
-            assignment.unavailable = assignment.unavailable | newUnavailable
+                # inferecnes<-(csp, var, assignment) use to for arc consistency
+                inferences = self.inference(var, assignment)
 
-            #result <- backTrack(assignment, csp)
-            result = backtrack(assignment, csp)
+                # if inferences not != failure
+                # check to make sure domains are not empty, will get caught next time if selecting vars with smallest domains
+                
+                #add inferecnes to assignment
+                newUnavailable = inferences - assignment.unavailable
+                assignment.unavailable = assignment.unavailable | newUnavailable
 
-            #if result != failsure 
-            if result:
-                return result
+                #result <- backTrack(assignment, csp)
+                result = self.backtrack(assignment)
 
-            #remove {var=val} and inferences from assignemnt 
-            assignment.vals[var]=None
-            assignment.unavailable = assignment.unavailable - newUnavailable
+                #if result != failsure 
+                if result:
+                    return result
 
-    #return failsure
-    return None
+                #remove {var=val} and inferences from assignemnt 
+                assignment.vals[var]=None
+                assignment.unavailable = assignment.unavailable - newUnavailable
+
+        #return failsure
+        return None
+
+    #not tested
+    def order_domain_values(self, var, assignment):
+        """
+        returns values in domain that are arc consistent, 
+        assuming unavailable has been updated via forward propogation
+        """
+        #what order should values be tried?
+        #don't try ones that are already taken.  arc consitency
+        return self.D[var] - assignment.unavailable
+
+    # not tested
+    def select_unassigned_var(self, assignment):
+        # which variable should be assigned next?
+        minDomainSize=100000
+        minVar=None
+        vars=assignment.vals.keys() 
+        for var in vars:
+            if not assignment.vals[var]:
+                domainSize= len(self.D[var])
+                if domainSize < minDomainSize:
+                    minDomainSize=domainSize
+                    minVar= var
+        return minVar
+
+    def inference(self, var, assignment):
+        inferences=set()
+        newCoord = assignment.vals[var]
+
+        #get position
+        inferences.add(newCoord)
+
+        #add neighbors
+        inferences = inferences.union(set(get_neighbors(newCoord)))
+
+        #check if row filled
+        coords = list(assignment.vals.values())
+        coords = [coord for coord in coords if coord]
+
+        rowCount=0
+        for coord in coords:
+            if coord[0] == newCoord[0]:
+                rowCount += 1
+
+        if rowCount == 2:
+            inferences = inferences.union(self.get_row(newCoord))
+
+        #check of col filed
+        colCount=0
+        for coord in coords:
+            if coord[1] == newCoord[1]:
+                colCount += 1
+
+        if colCount == 2:
+            inferences = inferences.union(self.get_col(newCoord))
+
+        return inferences
+
+    def get_row(self, newCoord):
+        #coords are eiter in assignments
+        allCoords=set()
+        domains= self.D.values()
+        for d in domains:
+            allCoords = allCoords.union(d)
+
+        return {coord for coord in allCoords if coord[0] == newCoord[0]}
+
+    def get_col(self, newCoord):
+        allCoords=set()
+        domains= self.D.values()
+        for d in domains:
+            allCoords = allCoords.union(d)
+
+        return {coord for coord in allCoords if coord[1] == newCoord[1]}
+# --------------------------------------------------------
+#                         assignment
+# --------------------------------------------------------
+
+class Assignment():
+    def __init__(self, vals, unv):
+        self.vals=vals
+        self.unavailable=unv
 
 def value_consistent_with_assignment(value, assignment):
     """
@@ -95,30 +154,6 @@ def value_consistent_with_assignment(value, assignment):
     vals = [val for val in vals if val]
     return notTooClose(vals)
 
-#not tested
-def order_domain_values(var, assignment, csp):
-    """
-    returns values in domain that are arc consistent, 
-    assuming unavailable has been updated via forward propogation
-    """
-    #what order should values be tried?
-    #don't try ones that are already taken.  arc consitency
-    return csp.D[var] - assignment.unavailable
-
-# not tested
-def select_unassigned_var(csp, assignment):
-    # which variable should be assigned next?
-    minDomainSize=100000
-    minVar=None
-    vars=assignment.vals.keys() 
-    for var in vars:
-        if not assignment.vals[var]:
-            domainSize= len(csp.D[var])
-            if domainSize < minDomainSize:
-                minDomainSize=domainSize
-                minVar= var
-    return minVar
-
     
 def is_complete(assignments):
     isComplete=True
@@ -128,55 +163,6 @@ def is_complete(assignments):
             isComplete = False
     return isComplete
 
-def inference(csp, var, assignment):
-    inferences=set()
-    newCoord = assignment.vals[var]
-
-    #get position
-    inferences.add(newCoord)
-
-    #add neighbors
-    inferences = inferences.union(set(get_neighbors(newCoord)))
-
-    #check if row filled
-    coords = list(assignment.vals.values())
-    coords = [coord for coord in coords if coord]
-
-    rowCount=0
-    for coord in coords:
-        if coord[0] == newCoord[0]:
-            rowCount += 1
-
-    if rowCount == 2:
-        inferences = inferences.union(get_row(newCoord, csp))
-
-    #check of col filed
-    colCount=0
-    for coord in coords:
-        if coord[1] == newCoord[1]:
-            colCount += 1
-
-    if colCount == 2:
-        inferences = inferences.union(get_col(newCoord, csp))
-
-    return inferences
-
-def get_row(newCoord, csp):
-    #coords are eiter in assignments
-    allCoords=set()
-    domains= csp.D.values()
-    for d in domains:
-        allCoords = allCoords.union(d)
-
-    return {coord for coord in allCoords if coord[0] == newCoord[0]}
-
-def get_col(newCoord, csp):
-    allCoords=set()
-    domains= csp.D.values()
-    for d in domains:
-        allCoords = allCoords.union(d)
-
-    return {coord for coord in allCoords if coord[1] == newCoord[1]}
 
 # --------------------------------------------------------------
 #                             constraint functions
@@ -278,18 +264,45 @@ def get_neighbors(coord):
     right = (coord[0],coord[1]+1)
     return [top, topRight, topLeft, bottom, bottomLeft, bottomRight, left, right] 
 
+# --------------------------------------------------------
+# transforming board into csp
+# --------------------------------------------------------
 
-class Assignment():
-    def __init__(self, vals, unv):
-        self.vals=vals
-        self.unavailable=unv
+def region_domains(board):
+    """
+    make list of tuples for each region to construct domains
+    return dictionary of region : set of coord pairs
+    """
+    regionCoords={}    
+    rowIndex=0
+    for row in board:
+        colIndex=0
+        for colVal in row:
+            if colVal in regionCoords:
+                regionCoords[colVal].add((rowIndex,colIndex))
+            else:
+                regionCoords[colVal]=set()
+                regionCoords[colVal].add((rowIndex,colIndex))
+            colIndex +=1
+        rowIndex +=1
+    return regionCoords
 
-# --------------------------------------------------------------
-#                             main
-# --------------------------------------------------------------
+def init_variables(regions):
+    vars = set()
+    for region in regions:
+        vars.add(str(region)+"A")
+        vars.add(str(region)+"B")
+    return vars
 
-Duck = namedtuple('Duck', 'bill tail')
-CSP = namedtuple('CSP', 'X D C')
+def init_assignments(vars):
+    return {var: None for var in vars}
 
-#Assignment = namedtuple('Assignment', 'vals unavailable')
+def init_domains(X, regionDomains):
+    D = {}
+    for var in X:
+        D[var] = set()
+        D[var]= {coord for coord in regionDomains[int(var[0])]}
+    return D
+
+
         

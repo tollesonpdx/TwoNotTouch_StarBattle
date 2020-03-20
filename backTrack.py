@@ -31,7 +31,7 @@ class CSP():
 
         for value in self.order_domain_values(var, assignment):
             #if value is consistent with assignment then
-            if value_consistent_with_assignment(value, assignment):
+            if self.value_consistent_with_assignment(value, assignment):
 
                 # add {var=value} to assignment
                 assignment.vals[var]=value
@@ -39,9 +39,6 @@ class CSP():
                 # inferecnes<-(csp, var, assignment) use to for arc consistency
                 inferences = self.inference(var, assignment)
 
-                # if inferences not != failure
-                # check to make sure domains are not empty, will get caught next time if selecting vars with smallest domains
-                
                 #add inferecnes to assignment
                 newUnavailable = inferences - assignment.unavailable
                 assignment.unavailable = assignment.unavailable | newUnavailable
@@ -133,6 +130,18 @@ class CSP():
             allCoords = allCoords.union(d)
 
         return {coord for coord in allCoords if coord[1] == newCoord[1]}
+
+    def value_consistent_with_assignment(self, value, assignment):
+        """
+        applies constraint to value and assignment
+        input: value, assignment
+        output: bool
+        """
+        vals = list(assignment.vals.values())
+        vals.append(value)
+        #need to filter out none
+        vals = [val for val in vals if val]
+        return self.C(vals)
 # --------------------------------------------------------
 #                         assignment
 # --------------------------------------------------------
@@ -142,17 +151,6 @@ class Assignment():
         self.vals=vals
         self.unavailable=unv
 
-def value_consistent_with_assignment(value, assignment):
-    """
-    applies constraint to value and assignment
-    input: value, assignment
-    output: bool
-    """
-    vals = list(assignment.vals.values())
-    vals.append(value)
-    #need to filter out none
-    vals = [val for val in vals if val]
-    return notTooClose(vals)
 
     
 def is_complete(assignments):

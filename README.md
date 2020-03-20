@@ -8,6 +8,5 @@ source env/bin/activate
 python -m pip install matplotlib
 ```
 ## To Run
-```
-python twoNotTouch.py
-```
+To run the backtracking algorithm: `python driverBacktrack.py`
+

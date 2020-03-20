@@ -9,23 +9,27 @@ import TNT_board as board
 class specimen(object):
     def __init__(self,brdgme):
         self.spec = [0,[0,1,2,3,4,5,6,7,8,9],[0,1,2,3,4,5,6,7,8,9]]
-        
+        # random.shuffle(self.spec[1])
+        # random.shuffle(self.spec[2])
+
         # make sure there are no illegal star placements in initial specimen
-        viable = False
-        while (viable == False):
-            viable = True
-            random.shuffle(self.spec[1])
-            random.shuffle(self.spec[2])
-            for i in range(0,9):
-                if (self.spec[1][i] == self.spec[2][i]):
-                    viable = False
+        if (0):
+            viable = False
+            while (viable == False):
+                viable = True
+                random.shuffle(self.spec[1])
+                random.shuffle(self.spec[2])
+                for i in range(0,9):
+                    if (self.spec[1][i] == self.spec[2][i]):
+                        viable = False
         
         self.fitness(brdgme, False)
-        if (v): print('New Specimen:',self.spec)
+        if (0 and v): print('New Specimen:',self.spec)
    
     def fitness(self, brdgme, printBool):
-        
-        if (1):  # make sure there are no illegal star placements in initial specimen
+        v = False
+
+        if (0):  # make sure there are no illegal star placements
             viable = False
             while (viable == False):
                 viable = True
@@ -65,8 +69,9 @@ class specimen(object):
                 adjoiningStars += 1
                 if (v or printBool): print('group 1 & 2 same row - (',i,',',self.spec[1][i],') , (',i,',',self.spec[2][i],')')
             if (self.spec[1][i] == self.spec[2][i]  )  : 
-                hapsburgFlag = True
-                if (v or printBool): print('group 1 & 2 same row - (',i,',',self.spec[1][i],') , (',i,',',self.spec[2][i],')')
+                adjoiningStars += 1
+                # hapsburgFlag = True
+                if (v or printBool): print('group 1 & 2 same row - (',i,',',self.spec[1][i],') , (',i,',',self.spec[2][i],') inbred')
             if (self.spec[1][i] == self.spec[2][i]+1)  : 
                 adjoiningStars += 1
                 if (v or printBool): print('group 1 & 2 same row - (',i,',',self.spec[1][i],') , (',i,',',self.spec[2][i],')')
@@ -83,23 +88,23 @@ class specimen(object):
 
             if (self.spec[1][i] == self.spec[2][i+1]-1): 
                 adjoiningStars += 1 
-                if (v or printBool): print('group 1 & 2 - diff row (',i,',',self.spec[1][i],') , (',i+1,',',self.spec[2][i+1],')')
+                if (v or printBool): print('group 1 & 2 diff row - (',i,',',self.spec[1][i],') , (',i+1,',',self.spec[2][i+1],')')
             if (self.spec[1][i] == self.spec[2][i+1]  ): 
                 adjoiningStars += 1
-                if (v or printBool): print('group 1 & 2 - diff row (',i,',',self.spec[1][i],') , (',i+1,',',self.spec[2][i+1],')')
+                if (v or printBool): print('group 1 & 2 diff row - (',i,',',self.spec[1][i],') , (',i+1,',',self.spec[2][i+1],')')
             if (self.spec[1][i] == self.spec[2][i+1]+1): 
                 adjoiningStars += 1
-                if (v or printBool): print('group 1 & 2 - diff row (',i,',',self.spec[1][i],') , (',i+1,',',self.spec[2][i+1],')')
+                if (v or printBool): print('group 1 & 2 diff row - (',i,',',self.spec[1][i],') , (',i+1,',',self.spec[2][i+1],')')
         
             if (self.spec[2][i] == self.spec[1][i+1]-1): 
                 adjoiningStars += 1 
-                if (v or printBool): print('group 2 & 1 - diff row (',i,',',self.spec[2][i],') , (',i+1,',',self.spec[1][i+1],')')
+                if (v or printBool): print('group 2 & 1 diff row - (',i,',',self.spec[2][i],') , (',i+1,',',self.spec[1][i+1],')')
             if (self.spec[2][i] == self.spec[1][i+1]  ): 
                 adjoiningStars += 1
-                if (v or printBool): print('group 2 & 1 - diff row (',i,',',self.spec[2][i],') , (',i+1,',',self.spec[1][i+1],')')
+                if (v or printBool): print('group 2 & 1 diff row - (',i,',',self.spec[2][i],') , (',i+1,',',self.spec[1][i+1],')')
             if (self.spec[2][i] == self.spec[1][i+1]+1): 
                 adjoiningStars += 1
-                if (v or printBool): print('group 2 & 1 - diff row (',i,',',self.spec[2][i],') , (',i+1,',',self.spec[1][i+1],')')
+                if (v or printBool): print('group 2 & 1 diff row - (',i,',',self.spec[2][i],') , (',i+1,',',self.spec[1][i+1],')')
 
         for region in brdgme.regionList:
             starCount = 0
@@ -110,7 +115,7 @@ class specimen(object):
                 sadRegions += 1
         
         if hapsburgFlag == True:
-            fitnessScore = .0001
+            fitnessScore = 0
         else:
             fitnessScore = maxFitness - adjoiningStars - sadRegions
         
@@ -121,14 +126,21 @@ class specimen(object):
             print('Hapsburgian?',hapsburgFlag,' Adjoining Stars:',adjoiningStars,' Unsatisfied Regions:',sadRegions,' Fitness Score:',fitnessScore)
     
     def mutateSpecimen(self, mutPct):
-        if (v): print('specimen before mutation function:',self.spec)
         mutateBool = mutPct >= random.random()
+        if (0 and v): 
+            print('mutateBool:',mutateBool)
+            print('specimen before mutation function:',self.spec)
         if (mutateBool):
             starBatch = random.randint(1,2)
-            r = random.randint(0,9)
-            m = random.randint(0,9)
-            self.spec[starBatch][r] = m
-        if (v): print('specimen after mutation function: ',self.spec)
+            r = random.choices(population=(range(0,10)), k=2)
+            temp = self.spec[starBatch][r[0]]
+            self.spec[starBatch][r[0]] = self.spec[starBatch][r[1]]
+            self.spec[starBatch][r[1]] = temp
+            # r = random.randint(0,9)
+            # m = random.randint(0,9)
+            # self.spec[starBatch][r] = m
+        if (0 and v):
+            print('specimen after mutation function: ',self.spec)
 
     def makeStars(self):
         stars = []
@@ -147,7 +159,7 @@ class specimen(object):
 class Population(object):
     """population of board arrangements with Stars randomly placed in each column"""
     def __init__(self, popSize, numIts, mutPct, brdgme):
-        self.broodFitness = 0.0001
+        self.broodFitness = 0
         self.brood = []
         self.performanceHistory = []
         self.familyTree = []
@@ -166,24 +178,30 @@ class Population(object):
         solved = 0
         generations = 1
         for gen in range(1,numIts+1):
-            if (v): print('Generation',gen)
-            self.brood, self.broodFitness, solved = self.callTheStork(popSize, mutPct, brdgme)
+            if (0 and v): print('\n\nGeneration',gen)
+            self.brood, self.broodFitness, solved = self.callTheStork(popSize, mutPct, gen, brdgme)
             if (solved): break
             self.performanceHistory.append((self.broodFitness/popSize))
             self.familyTree.append([generations,self.brood])
+            if (v): print('Generation',generations,'- Total Fitness =',self.broodFitness,'- Gen Avg Fitness =',self.broodFitness/popSize)
             generations += 1
         if (v): print('\n\nprinting final brood')
         self.printAndDestroyBrood(brdgme)
-        if (v): print('\ngenerating performance history plot')
+        if (v): 
+            print('\nPerformance History:',self.performanceHistory)
+            print('\ngenerating performance history plot')
         self.plotResults(generations)
         
-    def callTheStork(self, popSize, mutPct, brdgme):
+    def callTheStork(self, popSize, mutPct, gen, brdgme):
         """https://youtu.be/qScWb1HearI"""
         newBrood = []
         newBroodFitness = 0
         for i in range(int(popSize/2)):
             specA, specB = self.naturalSelection()
-            specC, specD = self.crossoverSpecimens(specA, specB)
+            if (1 and gen < 40):
+                specC, specD = self.crossoverSpecimens(specA, specB)
+            else:
+                specC, specD = specA, specB
             specC.mutateSpecimen(mutPct)
             specD.mutateSpecimen(mutPct)
             specC.fitness(brdgme, False)
@@ -204,16 +222,28 @@ class Population(object):
         for b in self.brood:
             if gk and b.spec[0] == maxFitness:  # like Genghis Khan
                 s = 1
+            elif b.spec[0] < 44:
+                s = 0
             else:
                 s = b.spec[0]/self.broodFitness
             probs.append(s)
-        return random.choices(population=self.brood, weights=probs, k=2)
+        if (0 and v): print('breeding probabilities:',probs)
+        breeders = random.choices(population=self.brood, weights=probs, k=2)
+        if (0 and v): print('breeding pair:\n',breeders[0].spec,'\n', breeders[1].spec)
+        return breeders
 
     def crossoverSpecimens(self, specA, specB):
+        # starBatch = random.randint(1,2)
+        # r = random.randint(0,9)
+        # temp = specA.spec[starBatch][0:r] + specB.spec[starBatch][r:10]
+        # specB.spec[starBatch] = specB.spec[starBatch][0:r] + specA.spec[starBatch][r:10]
+        # specA.spec[starBatch] = temp
+       
         starBatch = random.randint(1,2)
-        r = random.randint(0,9)
-        specA.spec[starBatch] = specA.spec[starBatch][0:r] + specB.spec[starBatch][r:10]
-        specB.spec[starBatch] = specB.spec[starBatch][0:r] + specA.spec[starBatch][r:10]
+        temp = specA.spec[starBatch]
+        specA.spec[starBatch] = specB.spec[starBatch]
+        specB.spec[starBatch] = specA.spec[starBatch]
+       
         return specA, specB
 
     def printAndDestroyBrood(self, brdgme):
@@ -228,12 +258,12 @@ class Population(object):
     def plotResults(self, gens):
         
         # plot the actual fitness measurements
-        plt.plot(range(0,gens),self.performanceHistory,'o', alpha=0.3, label='Average Fitness Measurement')
+        plt.plot(range(0,gens),self.performanceHistory,'o-', alpha=0.3, label='Average Fitness Measurement')
         
         if (1):  # plot a moving average 
             data = {'periods':range(0,gens), 'scores':self.performanceHistory}
             data = pd.DataFrame(data)
-            data['movingAverage'] = data.iloc[:,1].rolling(window=(int(gens/20))).mean()
+            data['movingAverage'] = data.iloc[:,1].rolling(window=(int(gens/10))).mean()
             plt.plot(range(0,gens) ,data['movingAverage'], '-', label='Moving Average')
         
         if (0):  # plot a straight line average
@@ -261,13 +291,13 @@ if __name__ == '__main__':
         solutionHalt = bool(input("enter True to tell the program to halt as soon as a solution is found, otherwise leave blank:  "))  #toggle to halt the program when a solution is found, or allow the trial to complete the number of generations
         v = bool(input("enter True to trigger verbose reporting, otherwise leave blank:  "))
     else:
-        populationSize = 1000
+        populationSize = 100
         numIterations = 100
-        mutationPct = 0.20
+        mutationPct = 0.90
         maxFitness = 55 # total number of adjointing pairs of stars plus empty regions
         gk = True
-        solutionHalt = False
-        v = False
+        solutionHalt = True
+        v = True
     
     if(v): print(f'\nPopulation Size: {populationSize}\nGenerations: {populationSize}\nMutation Percentage: {mutationPct*100}%\nMaximum Fitness Score: {maxFitness}\nSuper-Breeder / Ghengis Khan Toggle: {gk}\nHalt at Solution: {solutionHalt}\nVerbose Printing: {v}\nworking...')
     game = board.board(board.boardList.b)

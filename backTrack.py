@@ -39,9 +39,6 @@ class CSP():
                 # inferecnes<-(csp, var, assignment) use to for arc consistency
                 inferences = self.inference(var, assignment)
 
-                # if inferences not != failure
-                # check to make sure domains are not empty, will get caught next time if selecting vars with smallest domains
-                
                 #add inferecnes to assignment
                 newUnavailable = inferences - assignment.unavailable
                 assignment.unavailable = assignment.unavailable | newUnavailable

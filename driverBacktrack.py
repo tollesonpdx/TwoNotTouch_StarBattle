@@ -11,6 +11,8 @@ board = ((1, 2, 2, 2, 2, 2, 2, 2, 2),
         (1, 1, 7, 7, 8, 8, 8, 8, 8),
         (1, 1, 1, 7, 8, 8, 8, 8, 8))
 
+
+
 csp = bt.CSP(board)
 solution= csp.backtracking_search()
 print(solution.vals.values())

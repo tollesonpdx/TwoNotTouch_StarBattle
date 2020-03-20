@@ -128,7 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-
 # Stupid Temp Code Runner Files
 tempCodeRunnerFile.py
 
@@ -137,3 +136,7 @@ tempCodeRunnerFile.py
 
 # whatever this is
 __pycache__/
+
+# xml and iml files from PyCharm envs
+*.xml
+*.iml

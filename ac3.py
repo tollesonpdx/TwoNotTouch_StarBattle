@@ -16,7 +16,7 @@ class ac_csp():
         self.domain = self.create_domain(board)
         # self.regions = self.get_regions(board)
         self.arcs = self.make_arcs()
-        self.constraints = self.develop_constraints(vars)
+        self.constraints = self.develop_constraints(self.vars)
         self.solver_queue = queue.Queue()
 
     def get_vars(self, board):
@@ -80,7 +80,7 @@ class ac_csp():
                             arcs.append(arc)
         return arcs
 
-    def develop_constraints(self, vars):
+    def develop_constraints(self, vars, var1, var2):
         '''
         Calls several sub-functions to create the appropriate constraints
         :param vars: variables, as created in the get_vars function
@@ -90,7 +90,7 @@ class ac_csp():
         constraints = True
         rc = self.row_check()
         cc = self.col_check()
-        adj = self.adjacency_check()
+        adj = self.adjacency_check(var1, var2)
         reg = self.region_check(vars)
 
         if rc == False or cc == False or adj == False or reg == False:
@@ -134,7 +134,34 @@ class ac_csp():
                         cc_result = True
             return cc_result
 
-    def unique_check(self, vars):
+    def adjacency_check(self, var1, var2):
+        '''
+        Checks for adjacency in a pair of coordinates (an arc) from the arcs queue, or of two variables passed in.
+        :param var1: First coordinate from the arc
+        :param var2: Second coordinate from the arc
+        :return: Return False if there's no adjacency, True if there is an adjacency
+        '''
+        ac_result = False
+        n1 = (var1[0]+1, var1[1]-1)
+        n2 = (var1[0]+1, var1[1])
+        n3 = (var1[0]+1, var1[1]+1)
+        n4 = (var1[0], var1[1]-1)
+        n5 = (var1[0], var1[1]+1)
+        n7 = (var1[0]-1, var1[1]+1)
+        n8 = (var1[0]-1, var1[1])
+        n9 = (var1[0]-1, var1[1]+1)
+        if n1 == var2 or n2 == var2 or n3 == var2 or n4 == var2 or n5 == var2 or n7 == var2 or n8 == var2 or n9 == var2:
+            ac_result = True
+        return ac_result
+
+    def region_check(self, board):
+        '''
+        Looks at the values in the board and
+        :param board:
+        :return:
+        '''
+
+    def unique_check(self, vars): # this isn't actually used anywhere because we're putting all the arcs in a set.
         '''
         Makes a set out of the vars list, and checks whether the length of the set is equal to the number of stars
         we're attempting to put on the board; ignores the result if any of the stars have yet to be allocated.
@@ -151,26 +178,22 @@ class ac_csp():
             unique_result = False
         return unique_result
 
-    def solve(self, generate = False):
+    def solve(self):
         result = self.solve_helper
-        if generate:
-            return result
-        else:
-            return_value = []
-            for step in result:
-
-                '''
-                If we can't take a step, we've found an inconsistency.
-                '''
-                if step == None:
-                    return step
-                else:
-                    return_value = step
-
+        return_value = []
+        for step in result:
             '''
-            We return only the final domain from the solver.
+            If we can't take a step, we've found an inconsistency.
             '''
-            return return_value[1]
+            if step == None:
+                return step
+            else:
+                return_value = step
+
+        '''
+        We return only the final domain from the solver.
+        '''
+        return return_value[1]
 
     '''
     Returns a generator for every step in the algorithm - including the end result

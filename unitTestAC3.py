@@ -1,11 +1,11 @@
 import unittest
-from twoNotTouch import boardList
+from tnt_board import boardList
 from ac3 import ac_csp
 import math
 
 class ac3_test(unittest.TestCase):
     '''
-    This works with any subset of boardList or with a hard coded board
+    This works with any subset of tnt_board.boardList or with a hard coded board
     '''
 
     def test_vars(self):

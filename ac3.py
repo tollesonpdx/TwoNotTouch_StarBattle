@@ -14,9 +14,8 @@ class ac_csp():
         self.board = board
         self.vars = self.get_vars(board)
         self.domain = self.create_domain(board)
-        # self.regions = self.get_regions(board)
         self.arcs = self.make_arcs()
-        self.constraints = self.develop_constraints(self.vars)
+        self.constraints = self.check_function(x=(0, 0), y=(0, 0)) # hard coded to make it run, currently
         self.solver_queue = queue.Queue()
 
     def get_vars(self, board):
@@ -80,43 +79,26 @@ class ac_csp():
                             arcs.append(arc)
         return arcs
 
-    def develop_constraints(self, vars, var1, var2):
-        '''
-        Calls several sub-functions to create the appropriate constraints
-        :param vars: variables, as created in the get_vars function
-        :param arcs:
-        :return:
-        '''
-        constraints = True
-        rc = self.row_check()
-        cc = self.col_check()
-        adj = self.adjacency_check(var1, var2)
-        reg = self.region_check(vars)
-
-        if rc == False or cc == False or adj == False or reg == False:
-            constraints = False
-        return constraints
-
-    def row_check(self):
+    def row_check(self, var1=(0, 0), var2=(0, 0)):
         '''
         Takes in our list of variables and checks whether any n are in the same row, where n is NUM_STARS.
-        :param vars: Looks in vars
+        :param var1:
+        :param var2:
         :return:
         '''
         rc_result = False
         rowcount = 0
-        for var1 in self.vars:
-            if not var1[0] == -1 and not var1[1] == -1:
-              v1x = var1[0]
-              for var2 in self.vars:
-                  v2x = var2[0]
-                  if v1x == v2x:
-                      rowcount += 1
-                      if rowcount >= NUM_STARS:
-                          rc_result = True
-            return rc_result
+        if not var1[0] == -1 and not var1[1] == -1:
+            v1x = var1[0]
+            v2x = var2[0]
+            if v1x == v2x:
+                rowcount += 1
+                if rowcount >= NUM_STARS:
+                    rc_result = True
 
-    def col_check(self):
+        return rc_result
+
+    def col_check(self, var1=(0, 0), var2=(0, 0)):
         '''
         Takes in our list of variables and checks whether any n have the same col, where n is NUM_STARS.
         :param vars: Looks in vars
@@ -124,17 +106,15 @@ class ac_csp():
         '''
         cc_result = False
         colcount = 0
-        for var1 in self.vars:
-            v1y = var1[1]
-            for var2 in self.vars:
-                v2y = var2[1]
-                if v1y == v2y:
-                    colcount += 1
-                    if colcount >= NUM_STARS:
-                        cc_result = True
-            return cc_result
+        v1y = var1[1]
+        v2y = var2[1]
+        if v1y == v2y:
+            colcount += 1
+            if colcount >= NUM_STARS:
+                cc_result = True
+        return cc_result
 
-    def adjacency_check(self, var1, var2):
+    def adjacency_check(self, var1=(0, 0), var2=(0, 0)):
         '''
         Checks for adjacency in a pair of coordinates (an arc) from the arcs queue, or of two variables passed in.
         :param var1: First coordinate from the arc
@@ -160,9 +140,13 @@ class ac_csp():
         :param board:
         :return:
         '''
+        return False
 
-    def unique_check(self, vars): # this isn't actually used anywhere because we're putting all the arcs in a set.
+    def unique_check(self):
         '''
+        This function has been deprecated but has been left in the code just in case - this check is no longer
+        being used because we're removing the possibility of arcs of (x1, y1), (x1, y1) from the list of arcs.
+
         Makes a set out of the vars list, and checks whether the length of the set is equal to the number of stars
         we're attempting to put on the board; ignores the result if any of the stars have yet to be allocated.
         :param vars:
@@ -179,7 +163,7 @@ class ac_csp():
         return unique_result
 
     def solve(self):
-        result = self.solve_helper
+        result = self.solution_assistant
         return_value = []
         for step in result:
             '''
@@ -195,11 +179,35 @@ class ac_csp():
         '''
         return return_value[1]
 
-    '''
-    Returns a generator for every step in the algorithm - including the end result
-    Each of the yields is a tuple containing the edge, new domains, and other edges to consider
-    '''
-    def solve_helper(self):
+    def check_function(self, x, y):
+        '''
+        Runs all the
+        :param x: The first set of arc coordinates
+        :param y: The second set of arc coordinates
+        :return:
+        '''
+        rc = self.row_check(x, y)
+        cc = self.col_check(x, y)
+        adj = self.adjacency_check(x, y)
+        reg = self.region_check(self.board)
+
+        if rc == False or cc == False or adj == False or reg == False:
+            constraints = False
+        return constraints
+
+
+    def solution_assistant(self):
+        '''
+        Programmer's note:
+
+        Returns a generator for every step in the algorithm - including the end result
+        Each of the yields is a tuple containing the edge, new domains, and other edges to consider.
+        This function was initially coded against a much simpler AC3 implementation problem, but
+        once the scope of domains, arcs and constraints was expanded to fit the formulation of the
+        problem and all the issues inherent in getting AC3 to function on this problem were
+        discovered, the project progressed beyond this implementation.  As a result of these many
+        iterations, the AC3 algorithm no longer works or runs to completion.
+        '''
         [self.solver_queue.put(arc) for arc in self.arcs]
         while not self.solver_queue.empty():
             (xi, xj) = self.solver_queue.get()
@@ -216,22 +224,25 @@ class ac_csp():
             else:
                 yield ((xi, xj), self.domain, None)
 
-    def revise(self, xi, xj) -> bool:
+    def revise(self, xi, xj):
+        '''
+        This function needs to be entirely recoded to work with the most recent formulation of the problem -
+        unfortunately due to the issues that the most recent formulation of the problem still had with
+        picking initial domain constraints for any of its variables.
+        :return:
+        '''
         revised = False
-
         xi_domain = self.domain[xi]
         xj_domain = self.domain[xj]
 
-        # We need to apply this more broadly across all our constraints
+        # this part specifically won't work with the current problem formulation.
         constraints = [constraint for constraint in self.constraints if constraint[0] == xi and constraint[1] == xj]
 
         for x in xi_domain[:]:
             constraint_satisfaction = False
-
             for y in xj_domain[:]:
                 for constraint in constraints:
                     check_function = self.constraints[constraint]
-
                     #check y against x for each constraint
                     if check_function(x, y):
                         constraint_satisfaction = True

@@ -1,0 +1,1275 @@
+
+Population Size: 1000
+Generations: 1000
+Mutation Percentage: 20.0%
+Maximum Fitness Score: 55
+Super-Breeder / Ghengis Khan Toggle: True
+Halt at Solution: True
+Verbose Printing: True
+working...
+creating brood
+specimen #0 - fitness score = 7
+specimen #1 - fitness score = 7
+specimen #2 - fitness score = 7
+specimen #3 - fitness score = 7
+specimen #4 - fitness score = 7
+specimen #5 - fitness score = 7
+specimen #6 - fitness score = 7
+specimen #7 - fitness score = 7
+specimen #8 - fitness score = 7
+specimen #9 - fitness score = 7
+specimen #10 - fitness score = 7
+specimen #11 - fitness score = 7
+specimen #12 - fitness score = 7
+specimen #13 - fitness score = 7
+specimen #14 - fitness score = 7
+specimen #15 - fitness score = 7
+specimen #16 - fitness score = 7
+specimen #17 - fitness score = 7
+specimen #18 - fitness score = 7
+specimen #19 - fitness score = 7
+specimen #20 - fitness score = 7
+specimen #21 - fitness score = 7
+specimen #22 - fitness score = 7
+specimen #23 - fitness score = 7
+specimen #24 - fitness score = 7
+specimen #25 - fitness score = 7
+specimen #26 - fitness score = 7
+specimen #27 - fitness score = 7
+specimen #28 - fitness score = 7
+specimen #29 - fitness score = 7
+specimen #30 - fitness score = 7
+specimen #31 - fitness score = 7
+specimen #32 - fitness score = 7
+specimen #33 - fitness score = 7
+specimen #34 - fitness score = 7
+specimen #35 - fitness score = 7
+specimen #36 - fitness score = 7
+specimen #37 - fitness score = 7
+specimen #38 - fitness score = 7
+specimen #39 - fitness score = 7
+specimen #40 - fitness score = 7
+specimen #41 - fitness score = 7
+specimen #42 - fitness score = 7
+specimen #43 - fitness score = 7
+specimen #44 - fitness score = 7
+specimen #45 - fitness score = 7
+specimen #46 - fitness score = 7
+specimen #47 - fitness score = 7
+specimen #48 - fitness score = 7
+specimen #49 - fitness score = 7
+specimen #50 - fitness score = 7
+specimen #51 - fitness score = 7
+specimen #52 - fitness score = 7
+specimen #53 - fitness score = 7
+specimen #54 - fitness score = 7
+specimen #55 - fitness score = 7
+specimen #56 - fitness score = 7
+specimen #57 - fitness score = 7
+specimen #58 - fitness score = 7
+specimen #59 - fitness score = 7
+specimen #60 - fitness score = 7
+specimen #61 - fitness score = 7
+specimen #62 - fitness score = 7
+specimen #63 - fitness score = 7
+specimen #64 - fitness score = 7
+specimen #65 - fitness score = 7
+specimen #66 - fitness score = 7
+specimen #67 - fitness score = 7
+specimen #68 - fitness score = 7
+specimen #69 - fitness score = 7
+specimen #70 - fitness score = 7
+specimen #71 - fitness score = 7
+specimen #72 - fitness score = 7
+specimen #73 - fitness score = 7
+specimen #74 - fitness score = 7
+specimen #75 - fitness score = 7
+specimen #76 - fitness score = 7
+specimen #77 - fitness score = 7
+specimen #78 - fitness score = 7
+specimen #79 - fitness score = 7
+specimen #80 - fitness score = 7
+specimen #81 - fitness score = 7
+specimen #82 - fitness score = 7
+specimen #83 - fitness score = 7
+specimen #84 - fitness score = 7
+specimen #85 - fitness score = 7
+specimen #86 - fitness score = 7
+specimen #87 - fitness score = 7
+specimen #88 - fitness score = 7
+specimen #89 - fitness score = 7
+specimen #90 - fitness score = 7
+specimen #91 - fitness score = 7
+specimen #92 - fitness score = 7
+specimen #93 - fitness score = 7
+specimen #94 - fitness score = 7
+specimen #95 - fitness score = 7
+specimen #96 - fitness score = 7
+specimen #97 - fitness score = 7
+specimen #98 - fitness score = 7
+specimen #99 - fitness score = 7
+specimen #100 - fitness score = 7
+specimen #101 - fitness score = 7
+specimen #102 - fitness score = 7
+specimen #103 - fitness score = 7
+specimen #104 - fitness score = 7
+specimen #105 - fitness score = 7
+specimen #106 - fitness score = 7
+specimen #107 - fitness score = 7
+specimen #108 - fitness score = 7
+specimen #109 - fitness score = 7
+specimen #110 - fitness score = 7
+specimen #111 - fitness score = 7
+specimen #112 - fitness score = 7
+specimen #113 - fitness score = 7
+specimen #114 - fitness score = 7
+specimen #115 - fitness score = 7
+specimen #116 - fitness score = 7
+specimen #117 - fitness score = 7
+specimen #118 - fitness score = 7
+specimen #119 - fitness score = 7
+specimen #120 - fitness score = 7
+specimen #121 - fitness score = 7
+specimen #122 - fitness score = 7
+specimen #123 - fitness score = 7
+specimen #124 - fitness score = 7
+specimen #125 - fitness score = 7
+specimen #126 - fitness score = 7
+specimen #127 - fitness score = 7
+specimen #128 - fitness score = 7
+specimen #129 - fitness score = 7
+specimen #130 - fitness score = 7
+specimen #131 - fitness score = 7
+specimen #132 - fitness score = 7
+specimen #133 - fitness score = 7
+specimen #134 - fitness score = 7
+specimen #135 - fitness score = 7
+specimen #136 - fitness score = 7
+specimen #137 - fitness score = 7
+specimen #138 - fitness score = 7
+specimen #139 - fitness score = 7
+specimen #140 - fitness score = 7
+specimen #141 - fitness score = 7
+specimen #142 - fitness score = 7
+specimen #143 - fitness score = 7
+specimen #144 - fitness score = 7
+specimen #145 - fitness score = 7
+specimen #146 - fitness score = 7
+specimen #147 - fitness score = 7
+specimen #148 - fitness score = 7
+specimen #149 - fitness score = 7
+specimen #150 - fitness score = 7
+specimen #151 - fitness score = 7
+specimen #152 - fitness score = 7
+specimen #153 - fitness score = 7
+specimen #154 - fitness score = 7
+specimen #155 - fitness score = 7
+specimen #156 - fitness score = 7
+specimen #157 - fitness score = 7
+specimen #158 - fitness score = 7
+specimen #159 - fitness score = 7
+specimen #160 - fitness score = 7
+specimen #161 - fitness score = 7
+specimen #162 - fitness score = 7
+specimen #163 - fitness score = 7
+specimen #164 - fitness score = 7
+specimen #165 - fitness score = 7
+specimen #166 - fitness score = 7
+specimen #167 - fitness score = 7
+specimen #168 - fitness score = 7
+specimen #169 - fitness score = 7
+specimen #170 - fitness score = 7
+specimen #171 - fitness score = 7
+specimen #172 - fitness score = 7
+specimen #173 - fitness score = 7
+specimen #174 - fitness score = 7
+specimen #175 - fitness score = 7
+specimen #176 - fitness score = 7
+specimen #177 - fitness score = 7
+specimen #178 - fitness score = 7
+specimen #179 - fitness score = 7
+specimen #180 - fitness score = 7
+specimen #181 - fitness score = 7
+specimen #182 - fitness score = 7
+specimen #183 - fitness score = 7
+specimen #184 - fitness score = 7
+specimen #185 - fitness score = 7
+specimen #186 - fitness score = 7
+specimen #187 - fitness score = 7
+specimen #188 - fitness score = 7
+specimen #189 - fitness score = 7
+specimen #190 - fitness score = 7
+specimen #191 - fitness score = 7
+specimen #192 - fitness score = 7
+specimen #193 - fitness score = 7
+specimen #194 - fitness score = 7
+specimen #195 - fitness score = 7
+specimen #196 - fitness score = 7
+specimen #197 - fitness score = 7
+specimen #198 - fitness score = 7
+specimen #199 - fitness score = 7
+specimen #200 - fitness score = 7
+specimen #201 - fitness score = 7
+specimen #202 - fitness score = 7
+specimen #203 - fitness score = 7
+specimen #204 - fitness score = 7
+specimen #205 - fitness score = 7
+specimen #206 - fitness score = 7
+specimen #207 - fitness score = 7
+specimen #208 - fitness score = 7
+specimen #209 - fitness score = 7
+specimen #210 - fitness score = 7
+specimen #211 - fitness score = 7
+specimen #212 - fitness score = 7
+specimen #213 - fitness score = 7
+specimen #214 - fitness score = 7
+specimen #215 - fitness score = 7
+specimen #216 - fitness score = 7
+specimen #217 - fitness score = 7
+specimen #218 - fitness score = 7
+specimen #219 - fitness score = 7
+specimen #220 - fitness score = 7
+specimen #221 - fitness score = 7
+specimen #222 - fitness score = 7
+specimen #223 - fitness score = 7
+specimen #224 - fitness score = 7
+specimen #225 - fitness score = 7
+specimen #226 - fitness score = 7
+specimen #227 - fitness score = 7
+specimen #228 - fitness score = 7
+specimen #229 - fitness score = 7
+specimen #230 - fitness score = 7
+specimen #231 - fitness score = 7
+specimen #232 - fitness score = 7
+specimen #233 - fitness score = 7
+specimen #234 - fitness score = 7
+specimen #235 - fitness score = 7
+specimen #236 - fitness score = 7
+specimen #237 - fitness score = 7
+specimen #238 - fitness score = 7
+specimen #239 - fitness score = 7
+specimen #240 - fitness score = 7
+specimen #241 - fitness score = 7
+specimen #242 - fitness score = 7
+specimen #243 - fitness score = 7
+specimen #244 - fitness score = 7
+specimen #245 - fitness score = 7
+specimen #246 - fitness score = 7
+specimen #247 - fitness score = 7
+specimen #248 - fitness score = 7
+specimen #249 - fitness score = 7
+specimen #250 - fitness score = 7
+specimen #251 - fitness score = 7
+specimen #252 - fitness score = 7
+specimen #253 - fitness score = 7
+specimen #254 - fitness score = 7
+specimen #255 - fitness score = 7
+specimen #256 - fitness score = 7
+specimen #257 - fitness score = 7
+specimen #258 - fitness score = 7
+specimen #259 - fitness score = 7
+specimen #260 - fitness score = 7
+specimen #261 - fitness score = 7
+specimen #262 - fitness score = 7
+specimen #263 - fitness score = 7
+specimen #264 - fitness score = 7
+specimen #265 - fitness score = 7
+specimen #266 - fitness score = 7
+specimen #267 - fitness score = 7
+specimen #268 - fitness score = 7
+specimen #269 - fitness score = 7
+specimen #270 - fitness score = 7
+specimen #271 - fitness score = 7
+specimen #272 - fitness score = 7
+specimen #273 - fitness score = 7
+specimen #274 - fitness score = 7
+specimen #275 - fitness score = 7
+specimen #276 - fitness score = 7
+specimen #277 - fitness score = 7
+specimen #278 - fitness score = 7
+specimen #279 - fitness score = 7
+specimen #280 - fitness score = 7
+specimen #281 - fitness score = 7
+specimen #282 - fitness score = 7
+specimen #283 - fitness score = 7
+specimen #284 - fitness score = 7
+specimen #285 - fitness score = 7
+specimen #286 - fitness score = 7
+specimen #287 - fitness score = 7
+specimen #288 - fitness score = 7
+specimen #289 - fitness score = 7
+specimen #290 - fitness score = 7
+specimen #291 - fitness score = 7
+specimen #292 - fitness score = 7
+specimen #293 - fitness score = 7
+specimen #294 - fitness score = 7
+specimen #295 - fitness score = 7
+specimen #296 - fitness score = 7
+specimen #297 - fitness score = 7
+specimen #298 - fitness score = 7
+specimen #299 - fitness score = 7
+specimen #300 - fitness score = 7
+specimen #301 - fitness score = 7
+specimen #302 - fitness score = 7
+specimen #303 - fitness score = 7
+specimen #304 - fitness score = 7
+specimen #305 - fitness score = 7
+specimen #306 - fitness score = 7
+specimen #307 - fitness score = 7
+specimen #308 - fitness score = 7
+specimen #309 - fitness score = 7
+specimen #310 - fitness score = 7
+specimen #311 - fitness score = 7
+specimen #312 - fitness score = 7
+specimen #313 - fitness score = 7
+specimen #314 - fitness score = 7
+specimen #315 - fitness score = 7
+specimen #316 - fitness score = 7
+specimen #317 - fitness score = 7
+specimen #318 - fitness score = 7
+specimen #319 - fitness score = 7
+specimen #320 - fitness score = 7
+specimen #321 - fitness score = 7
+specimen #322 - fitness score = 7
+specimen #323 - fitness score = 7
+specimen #324 - fitness score = 7
+specimen #325 - fitness score = 7
+specimen #326 - fitness score = 7
+specimen #327 - fitness score = 7
+specimen #328 - fitness score = 7
+specimen #329 - fitness score = 7
+specimen #330 - fitness score = 7
+specimen #331 - fitness score = 7
+specimen #332 - fitness score = 7
+specimen #333 - fitness score = 7
+specimen #334 - fitness score = 7
+specimen #335 - fitness score = 7
+specimen #336 - fitness score = 7
+specimen #337 - fitness score = 7
+specimen #338 - fitness score = 7
+specimen #339 - fitness score = 7
+specimen #340 - fitness score = 7
+specimen #341 - fitness score = 7
+specimen #342 - fitness score = 7
+specimen #343 - fitness score = 7
+specimen #344 - fitness score = 7
+specimen #345 - fitness score = 7
+specimen #346 - fitness score = 7
+specimen #347 - fitness score = 7
+specimen #348 - fitness score = 7
+specimen #349 - fitness score = 7
+specimen #350 - fitness score = 7
+specimen #351 - fitness score = 7
+specimen #352 - fitness score = 7
+specimen #353 - fitness score = 7
+specimen #354 - fitness score = 7
+specimen #355 - fitness score = 7
+specimen #356 - fitness score = 7
+specimen #357 - fitness score = 7
+specimen #358 - fitness score = 7
+specimen #359 - fitness score = 7
+specimen #360 - fitness score = 7
+specimen #361 - fitness score = 7
+specimen #362 - fitness score = 7
+specimen #363 - fitness score = 7
+specimen #364 - fitness score = 7
+specimen #365 - fitness score = 7
+specimen #366 - fitness score = 7
+specimen #367 - fitness score = 7
+specimen #368 - fitness score = 7
+specimen #369 - fitness score = 7
+specimen #370 - fitness score = 7
+specimen #371 - fitness score = 7
+specimen #372 - fitness score = 7
+specimen #373 - fitness score = 7
+specimen #374 - fitness score = 7
+specimen #375 - fitness score = 7
+specimen #376 - fitness score = 7
+specimen #377 - fitness score = 7
+specimen #378 - fitness score = 7
+specimen #379 - fitness score = 7
+specimen #380 - fitness score = 7
+specimen #381 - fitness score = 7
+specimen #382 - fitness score = 7
+specimen #383 - fitness score = 7
+specimen #384 - fitness score = 7
+specimen #385 - fitness score = 7
+specimen #386 - fitness score = 7
+specimen #387 - fitness score = 7
+specimen #388 - fitness score = 7
+specimen #389 - fitness score = 7
+specimen #390 - fitness score = 7
+specimen #391 - fitness score = 7
+specimen #392 - fitness score = 7
+specimen #393 - fitness score = 7
+specimen #394 - fitness score = 7
+specimen #395 - fitness score = 7
+specimen #396 - fitness score = 7
+specimen #397 - fitness score = 7
+specimen #398 - fitness score = 7
+specimen #399 - fitness score = 7
+specimen #400 - fitness score = 7
+specimen #401 - fitness score = 7
+specimen #402 - fitness score = 7
+specimen #403 - fitness score = 7
+specimen #404 - fitness score = 7
+specimen #405 - fitness score = 7
+specimen #406 - fitness score = 7
+specimen #407 - fitness score = 7
+specimen #408 - fitness score = 7
+specimen #409 - fitness score = 7
+specimen #410 - fitness score = 7
+specimen #411 - fitness score = 7
+specimen #412 - fitness score = 7
+specimen #413 - fitness score = 7
+specimen #414 - fitness score = 7
+specimen #415 - fitness score = 7
+specimen #416 - fitness score = 7
+specimen #417 - fitness score = 7
+specimen #418 - fitness score = 7
+specimen #419 - fitness score = 7
+specimen #420 - fitness score = 7
+specimen #421 - fitness score = 7
+specimen #422 - fitness score = 7
+specimen #423 - fitness score = 7
+specimen #424 - fitness score = 7
+specimen #425 - fitness score = 7
+specimen #426 - fitness score = 7
+specimen #427 - fitness score = 7
+specimen #428 - fitness score = 7
+specimen #429 - fitness score = 7
+specimen #430 - fitness score = 7
+specimen #431 - fitness score = 7
+specimen #432 - fitness score = 7
+specimen #433 - fitness score = 7
+specimen #434 - fitness score = 7
+specimen #435 - fitness score = 7
+specimen #436 - fitness score = 7
+specimen #437 - fitness score = 7
+specimen #438 - fitness score = 7
+specimen #439 - fitness score = 7
+specimen #440 - fitness score = 7
+specimen #441 - fitness score = 7
+specimen #442 - fitness score = 7
+specimen #443 - fitness score = 7
+specimen #444 - fitness score = 7
+specimen #445 - fitness score = 7
+specimen #446 - fitness score = 7
+specimen #447 - fitness score = 7
+specimen #448 - fitness score = 7
+specimen #449 - fitness score = 7
+specimen #450 - fitness score = 7
+specimen #451 - fitness score = 7
+specimen #452 - fitness score = 7
+specimen #453 - fitness score = 7
+specimen #454 - fitness score = 7
+specimen #455 - fitness score = 7
+specimen #456 - fitness score = 7
+specimen #457 - fitness score = 7
+specimen #458 - fitness score = 7
+specimen #459 - fitness score = 7
+specimen #460 - fitness score = 7
+specimen #461 - fitness score = 7
+specimen #462 - fitness score = 7
+specimen #463 - fitness score = 7
+specimen #464 - fitness score = 7
+specimen #465 - fitness score = 7
+specimen #466 - fitness score = 7
+specimen #467 - fitness score = 7
+specimen #468 - fitness score = 7
+specimen #469 - fitness score = 7
+specimen #470 - fitness score = 7
+specimen #471 - fitness score = 7
+specimen #472 - fitness score = 7
+specimen #473 - fitness score = 7
+specimen #474 - fitness score = 7
+specimen #475 - fitness score = 7
+specimen #476 - fitness score = 7
+specimen #477 - fitness score = 7
+specimen #478 - fitness score = 7
+specimen #479 - fitness score = 7
+specimen #480 - fitness score = 7
+specimen #481 - fitness score = 7
+specimen #482 - fitness score = 7
+specimen #483 - fitness score = 7
+specimen #484 - fitness score = 7
+specimen #485 - fitness score = 7
+specimen #486 - fitness score = 7
+specimen #487 - fitness score = 7
+specimen #488 - fitness score = 7
+specimen #489 - fitness score = 7
+specimen #490 - fitness score = 7
+specimen #491 - fitness score = 7
+specimen #492 - fitness score = 7
+specimen #493 - fitness score = 7
+specimen #494 - fitness score = 7
+specimen #495 - fitness score = 7
+specimen #496 - fitness score = 7
+specimen #497 - fitness score = 7
+specimen #498 - fitness score = 7
+specimen #499 - fitness score = 7
+specimen #500 - fitness score = 7
+specimen #501 - fitness score = 7
+specimen #502 - fitness score = 7
+specimen #503 - fitness score = 7
+specimen #504 - fitness score = 7
+specimen #505 - fitness score = 7
+specimen #506 - fitness score = 7
+specimen #507 - fitness score = 7
+specimen #508 - fitness score = 7
+specimen #509 - fitness score = 7
+specimen #510 - fitness score = 7
+specimen #511 - fitness score = 7
+specimen #512 - fitness score = 7
+specimen #513 - fitness score = 7
+specimen #514 - fitness score = 7
+specimen #515 - fitness score = 7
+specimen #516 - fitness score = 7
+specimen #517 - fitness score = 7
+specimen #518 - fitness score = 7
+specimen #519 - fitness score = 7
+specimen #520 - fitness score = 7
+specimen #521 - fitness score = 7
+specimen #522 - fitness score = 7
+specimen #523 - fitness score = 7
+specimen #524 - fitness score = 7
+specimen #525 - fitness score = 7
+specimen #526 - fitness score = 7
+specimen #527 - fitness score = 7
+specimen #528 - fitness score = 7
+specimen #529 - fitness score = 7
+specimen #530 - fitness score = 7
+specimen #531 - fitness score = 7
+specimen #532 - fitness score = 7
+specimen #533 - fitness score = 7
+specimen #534 - fitness score = 7
+specimen #535 - fitness score = 7
+specimen #536 - fitness score = 7
+specimen #537 - fitness score = 7
+specimen #538 - fitness score = 7
+specimen #539 - fitness score = 7
+specimen #540 - fitness score = 7
+specimen #541 - fitness score = 7
+specimen #542 - fitness score = 7
+specimen #543 - fitness score = 7
+specimen #544 - fitness score = 7
+specimen #545 - fitness score = 7
+specimen #546 - fitness score = 7
+specimen #547 - fitness score = 7
+specimen #548 - fitness score = 7
+specimen #549 - fitness score = 7
+specimen #550 - fitness score = 7
+specimen #551 - fitness score = 7
+specimen #552 - fitness score = 7
+specimen #553 - fitness score = 7
+specimen #554 - fitness score = 7
+specimen #555 - fitness score = 7
+specimen #556 - fitness score = 7
+specimen #557 - fitness score = 7
+specimen #558 - fitness score = 7
+specimen #559 - fitness score = 7
+specimen #560 - fitness score = 7
+specimen #561 - fitness score = 7
+specimen #562 - fitness score = 7
+specimen #563 - fitness score = 7
+specimen #564 - fitness score = 7
+specimen #565 - fitness score = 7
+specimen #566 - fitness score = 7
+specimen #567 - fitness score = 7
+specimen #568 - fitness score = 7
+specimen #569 - fitness score = 7
+specimen #570 - fitness score = 7
+specimen #571 - fitness score = 7
+specimen #572 - fitness score = 7
+specimen #573 - fitness score = 7
+specimen #574 - fitness score = 7
+specimen #575 - fitness score = 7
+specimen #576 - fitness score = 7
+specimen #577 - fitness score = 7
+specimen #578 - fitness score = 7
+specimen #579 - fitness score = 7
+specimen #580 - fitness score = 7
+specimen #581 - fitness score = 7
+specimen #582 - fitness score = 7
+specimen #583 - fitness score = 7
+specimen #584 - fitness score = 7
+specimen #585 - fitness score = 7
+specimen #586 - fitness score = 7
+specimen #587 - fitness score = 7
+specimen #588 - fitness score = 7
+specimen #589 - fitness score = 7
+specimen #590 - fitness score = 7
+specimen #591 - fitness score = 7
+specimen #592 - fitness score = 7
+specimen #593 - fitness score = 7
+specimen #594 - fitness score = 7
+specimen #595 - fitness score = 7
+specimen #596 - fitness score = 7
+specimen #597 - fitness score = 7
+specimen #598 - fitness score = 7
+specimen #599 - fitness score = 7
+specimen #600 - fitness score = 7
+specimen #601 - fitness score = 7
+specimen #602 - fitness score = 7
+specimen #603 - fitness score = 7
+specimen #604 - fitness score = 7
+specimen #605 - fitness score = 7
+specimen #606 - fitness score = 7
+specimen #607 - fitness score = 7
+specimen #608 - fitness score = 7
+specimen #609 - fitness score = 7
+specimen #610 - fitness score = 7
+specimen #611 - fitness score = 7
+specimen #612 - fitness score = 7
+specimen #613 - fitness score = 7
+specimen #614 - fitness score = 7
+specimen #615 - fitness score = 7
+specimen #616 - fitness score = 7
+specimen #617 - fitness score = 7
+specimen #618 - fitness score = 7
+specimen #619 - fitness score = 7
+specimen #620 - fitness score = 7
+specimen #621 - fitness score = 7
+specimen #622 - fitness score = 7
+specimen #623 - fitness score = 7
+specimen #624 - fitness score = 7
+specimen #625 - fitness score = 7
+specimen #626 - fitness score = 7
+specimen #627 - fitness score = 7
+specimen #628 - fitness score = 7
+specimen #629 - fitness score = 7
+specimen #630 - fitness score = 7
+specimen #631 - fitness score = 7
+specimen #632 - fitness score = 7
+specimen #633 - fitness score = 7
+specimen #634 - fitness score = 7
+specimen #635 - fitness score = 7
+specimen #636 - fitness score = 7
+specimen #637 - fitness score = 7
+specimen #638 - fitness score = 7
+specimen #639 - fitness score = 7
+specimen #640 - fitness score = 7
+specimen #641 - fitness score = 7
+specimen #642 - fitness score = 7
+specimen #643 - fitness score = 7
+specimen #644 - fitness score = 7
+specimen #645 - fitness score = 7
+specimen #646 - fitness score = 7
+specimen #647 - fitness score = 7
+specimen #648 - fitness score = 7
+specimen #649 - fitness score = 7
+specimen #650 - fitness score = 7
+specimen #651 - fitness score = 7
+specimen #652 - fitness score = 7
+specimen #653 - fitness score = 7
+specimen #654 - fitness score = 7
+specimen #655 - fitness score = 7
+specimen #656 - fitness score = 7
+specimen #657 - fitness score = 7
+specimen #658 - fitness score = 7
+specimen #659 - fitness score = 7
+specimen #660 - fitness score = 7
+specimen #661 - fitness score = 7
+specimen #662 - fitness score = 7
+specimen #663 - fitness score = 7
+specimen #664 - fitness score = 7
+specimen #665 - fitness score = 7
+specimen #666 - fitness score = 7
+specimen #667 - fitness score = 7
+specimen #668 - fitness score = 7
+specimen #669 - fitness score = 7
+specimen #670 - fitness score = 7
+specimen #671 - fitness score = 7
+specimen #672 - fitness score = 7
+specimen #673 - fitness score = 7
+specimen #674 - fitness score = 7
+specimen #675 - fitness score = 7
+specimen #676 - fitness score = 7
+specimen #677 - fitness score = 7
+specimen #678 - fitness score = 7
+specimen #679 - fitness score = 7
+specimen #680 - fitness score = 7
+specimen #681 - fitness score = 7
+specimen #682 - fitness score = 7
+specimen #683 - fitness score = 7
+specimen #684 - fitness score = 7
+specimen #685 - fitness score = 7
+specimen #686 - fitness score = 7
+specimen #687 - fitness score = 7
+specimen #688 - fitness score = 7
+specimen #689 - fitness score = 7
+specimen #690 - fitness score = 7
+specimen #691 - fitness score = 7
+specimen #692 - fitness score = 7
+specimen #693 - fitness score = 7
+specimen #694 - fitness score = 7
+specimen #695 - fitness score = 7
+specimen #696 - fitness score = 7
+specimen #697 - fitness score = 7
+specimen #698 - fitness score = 7
+specimen #699 - fitness score = 7
+specimen #700 - fitness score = 7
+specimen #701 - fitness score = 7
+specimen #702 - fitness score = 7
+specimen #703 - fitness score = 7
+specimen #704 - fitness score = 7
+specimen #705 - fitness score = 7
+specimen #706 - fitness score = 7
+specimen #707 - fitness score = 7
+specimen #708 - fitness score = 7
+specimen #709 - fitness score = 7
+specimen #710 - fitness score = 7
+specimen #711 - fitness score = 7
+specimen #712 - fitness score = 7
+specimen #713 - fitness score = 7
+specimen #714 - fitness score = 7
+specimen #715 - fitness score = 7
+specimen #716 - fitness score = 7
+specimen #717 - fitness score = 7
+specimen #718 - fitness score = 7
+specimen #719 - fitness score = 7
+specimen #720 - fitness score = 7
+specimen #721 - fitness score = 7
+specimen #722 - fitness score = 7
+specimen #723 - fitness score = 7
+specimen #724 - fitness score = 7
+specimen #725 - fitness score = 7
+specimen #726 - fitness score = 7
+specimen #727 - fitness score = 7
+specimen #728 - fitness score = 7
+specimen #729 - fitness score = 7
+specimen #730 - fitness score = 7
+specimen #731 - fitness score = 7
+specimen #732 - fitness score = 7
+specimen #733 - fitness score = 7
+specimen #734 - fitness score = 7
+specimen #735 - fitness score = 7
+specimen #736 - fitness score = 7
+specimen #737 - fitness score = 7
+specimen #738 - fitness score = 7
+specimen #739 - fitness score = 7
+specimen #740 - fitness score = 7
+specimen #741 - fitness score = 7
+specimen #742 - fitness score = 7
+specimen #743 - fitness score = 7
+specimen #744 - fitness score = 7
+specimen #745 - fitness score = 7
+specimen #746 - fitness score = 7
+specimen #747 - fitness score = 7
+specimen #748 - fitness score = 7
+specimen #749 - fitness score = 7
+specimen #750 - fitness score = 7
+specimen #751 - fitness score = 7
+specimen #752 - fitness score = 7
+specimen #753 - fitness score = 7
+specimen #754 - fitness score = 7
+specimen #755 - fitness score = 7
+specimen #756 - fitness score = 7
+specimen #757 - fitness score = 7
+specimen #758 - fitness score = 7
+specimen #759 - fitness score = 7
+specimen #760 - fitness score = 7
+specimen #761 - fitness score = 7
+specimen #762 - fitness score = 7
+specimen #763 - fitness score = 7
+specimen #764 - fitness score = 7
+specimen #765 - fitness score = 7
+specimen #766 - fitness score = 7
+specimen #767 - fitness score = 7
+specimen #768 - fitness score = 7
+specimen #769 - fitness score = 7
+specimen #770 - fitness score = 7
+specimen #771 - fitness score = 7
+specimen #772 - fitness score = 7
+specimen #773 - fitness score = 7
+specimen #774 - fitness score = 7
+specimen #775 - fitness score = 7
+specimen #776 - fitness score = 7
+specimen #777 - fitness score = 7
+specimen #778 - fitness score = 7
+specimen #779 - fitness score = 7
+specimen #780 - fitness score = 7
+specimen #781 - fitness score = 7
+specimen #782 - fitness score = 7
+specimen #783 - fitness score = 7
+specimen #784 - fitness score = 7
+specimen #785 - fitness score = 7
+specimen #786 - fitness score = 7
+specimen #787 - fitness score = 7
+specimen #788 - fitness score = 7
+specimen #789 - fitness score = 7
+specimen #790 - fitness score = 7
+specimen #791 - fitness score = 7
+specimen #792 - fitness score = 7
+specimen #793 - fitness score = 7
+specimen #794 - fitness score = 7
+specimen #795 - fitness score = 7
+specimen #796 - fitness score = 7
+specimen #797 - fitness score = 7
+specimen #798 - fitness score = 7
+specimen #799 - fitness score = 7
+specimen #800 - fitness score = 7
+specimen #801 - fitness score = 7
+specimen #802 - fitness score = 7
+specimen #803 - fitness score = 7
+specimen #804 - fitness score = 7
+specimen #805 - fitness score = 7
+specimen #806 - fitness score = 7
+specimen #807 - fitness score = 7
+specimen #808 - fitness score = 7
+specimen #809 - fitness score = 7
+specimen #810 - fitness score = 7
+specimen #811 - fitness score = 7
+specimen #812 - fitness score = 7
+specimen #813 - fitness score = 7
+specimen #814 - fitness score = 7
+specimen #815 - fitness score = 7
+specimen #816 - fitness score = 7
+specimen #817 - fitness score = 7
+specimen #818 - fitness score = 7
+specimen #819 - fitness score = 7
+specimen #820 - fitness score = 7
+specimen #821 - fitness score = 7
+specimen #822 - fitness score = 7
+specimen #823 - fitness score = 7
+specimen #824 - fitness score = 7
+specimen #825 - fitness score = 7
+specimen #826 - fitness score = 7
+specimen #827 - fitness score = 7
+specimen #828 - fitness score = 7
+specimen #829 - fitness score = 7
+specimen #830 - fitness score = 7
+specimen #831 - fitness score = 7
+specimen #832 - fitness score = 7
+specimen #833 - fitness score = 7
+specimen #834 - fitness score = 7
+specimen #835 - fitness score = 7
+specimen #836 - fitness score = 7
+specimen #837 - fitness score = 7
+specimen #838 - fitness score = 7
+specimen #839 - fitness score = 7
+specimen #840 - fitness score = 7
+specimen #841 - fitness score = 7
+specimen #842 - fitness score = 7
+specimen #843 - fitness score = 7
+specimen #844 - fitness score = 7
+specimen #845 - fitness score = 7
+specimen #846 - fitness score = 7
+specimen #847 - fitness score = 7
+specimen #848 - fitness score = 7
+specimen #849 - fitness score = 7
+specimen #850 - fitness score = 7
+specimen #851 - fitness score = 7
+specimen #852 - fitness score = 7
+specimen #853 - fitness score = 7
+specimen #854 - fitness score = 7
+specimen #855 - fitness score = 7
+specimen #856 - fitness score = 7
+specimen #857 - fitness score = 7
+specimen #858 - fitness score = 7
+specimen #859 - fitness score = 7
+specimen #860 - fitness score = 7
+specimen #861 - fitness score = 7
+specimen #862 - fitness score = 7
+specimen #863 - fitness score = 7
+specimen #864 - fitness score = 7
+specimen #865 - fitness score = 7
+specimen #866 - fitness score = 7
+specimen #867 - fitness score = 7
+specimen #868 - fitness score = 7
+specimen #869 - fitness score = 7
+specimen #870 - fitness score = 7
+specimen #871 - fitness score = 7
+specimen #872 - fitness score = 7
+specimen #873 - fitness score = 7
+specimen #874 - fitness score = 7
+specimen #875 - fitness score = 7
+specimen #876 - fitness score = 7
+specimen #877 - fitness score = 7
+specimen #878 - fitness score = 7
+specimen #879 - fitness score = 7
+specimen #880 - fitness score = 7
+specimen #881 - fitness score = 7
+specimen #882 - fitness score = 7
+specimen #883 - fitness score = 7
+specimen #884 - fitness score = 7
+specimen #885 - fitness score = 7
+specimen #886 - fitness score = 7
+specimen #887 - fitness score = 7
+specimen #888 - fitness score = 7
+specimen #889 - fitness score = 7
+specimen #890 - fitness score = 7
+specimen #891 - fitness score = 7
+specimen #892 - fitness score = 7
+specimen #893 - fitness score = 7
+specimen #894 - fitness score = 7
+specimen #895 - fitness score = 7
+specimen #896 - fitness score = 7
+specimen #897 - fitness score = 7
+specimen #898 - fitness score = 7
+specimen #899 - fitness score = 7
+specimen #900 - fitness score = 7
+specimen #901 - fitness score = 7
+specimen #902 - fitness score = 7
+specimen #903 - fitness score = 7
+specimen #904 - fitness score = 7
+specimen #905 - fitness score = 7
+specimen #906 - fitness score = 7
+specimen #907 - fitness score = 7
+specimen #908 - fitness score = 7
+specimen #909 - fitness score = 7
+specimen #910 - fitness score = 7
+specimen #911 - fitness score = 7
+specimen #912 - fitness score = 7
+specimen #913 - fitness score = 7
+specimen #914 - fitness score = 7
+specimen #915 - fitness score = 7
+specimen #916 - fitness score = 7
+specimen #917 - fitness score = 7
+specimen #918 - fitness score = 7
+specimen #919 - fitness score = 7
+specimen #920 - fitness score = 7
+specimen #921 - fitness score = 7
+specimen #922 - fitness score = 7
+specimen #923 - fitness score = 7
+specimen #924 - fitness score = 7
+specimen #925 - fitness score = 7
+specimen #926 - fitness score = 7
+specimen #927 - fitness score = 7
+specimen #928 - fitness score = 7
+specimen #929 - fitness score = 7
+specimen #930 - fitness score = 7
+specimen #931 - fitness score = 7
+specimen #932 - fitness score = 7
+specimen #933 - fitness score = 7
+specimen #934 - fitness score = 7
+specimen #935 - fitness score = 7
+specimen #936 - fitness score = 7
+specimen #937 - fitness score = 7
+specimen #938 - fitness score = 7
+specimen #939 - fitness score = 7
+specimen #940 - fitness score = 7
+specimen #941 - fitness score = 7
+specimen #942 - fitness score = 7
+specimen #943 - fitness score = 7
+specimen #944 - fitness score = 7
+specimen #945 - fitness score = 7
+specimen #946 - fitness score = 7
+specimen #947 - fitness score = 7
+specimen #948 - fitness score = 7
+specimen #949 - fitness score = 7
+specimen #950 - fitness score = 7
+specimen #951 - fitness score = 7
+specimen #952 - fitness score = 7
+specimen #953 - fitness score = 7
+specimen #954 - fitness score = 7
+specimen #955 - fitness score = 7
+specimen #956 - fitness score = 7
+specimen #957 - fitness score = 7
+specimen #958 - fitness score = 7
+specimen #959 - fitness score = 7
+specimen #960 - fitness score = 7
+specimen #961 - fitness score = 7
+specimen #962 - fitness score = 7
+specimen #963 - fitness score = 7
+specimen #964 - fitness score = 7
+specimen #965 - fitness score = 7
+specimen #966 - fitness score = 7
+specimen #967 - fitness score = 7
+specimen #968 - fitness score = 7
+specimen #969 - fitness score = 7
+specimen #970 - fitness score = 7
+specimen #971 - fitness score = 7
+specimen #972 - fitness score = 7
+specimen #973 - fitness score = 7
+specimen #974 - fitness score = 7
+specimen #975 - fitness score = 7
+specimen #976 - fitness score = 7
+specimen #977 - fitness score = 7
+specimen #978 - fitness score = 7
+specimen #979 - fitness score = 7
+specimen #980 - fitness score = 7
+specimen #981 - fitness score = 7
+specimen #982 - fitness score = 7
+specimen #983 - fitness score = 7
+specimen #984 - fitness score = 7
+specimen #985 - fitness score = 7
+specimen #986 - fitness score = 7
+specimen #987 - fitness score = 7
+specimen #988 - fitness score = 7
+specimen #989 - fitness score = 7
+specimen #990 - fitness score = 7
+specimen #991 - fitness score = 7
+specimen #992 - fitness score = 7
+specimen #993 - fitness score = 7
+specimen #994 - fitness score = 7
+specimen #995 - fitness score = 7
+specimen #996 - fitness score = 7
+specimen #997 - fitness score = 7
+specimen #998 - fitness score = 7
+specimen #999 - fitness score = 7
+running stork experiments
+Generation 1 - Total Fitness = 11258 - Gen Avg Fitness = 11.258
+Generation 2 - Total Fitness = 19384 - Gen Avg Fitness = 19.384
+Generation 3 - Total Fitness = 29659 - Gen Avg Fitness = 29.659
+Generation 4 - Total Fitness = 35326 - Gen Avg Fitness = 35.326
+Generation 5 - Total Fitness = 38977 - Gen Avg Fitness = 38.977
+Generation 6 - Total Fitness = 40213 - Gen Avg Fitness = 40.213
+Generation 7 - Total Fitness = 40654 - Gen Avg Fitness = 40.654
+Generation 8 - Total Fitness = 39687 - Gen Avg Fitness = 39.687
+Generation 9 - Total Fitness = 40302 - Gen Avg Fitness = 40.302
+Generation 10 - Total Fitness = 40637 - Gen Avg Fitness = 40.637
+Generation 11 - Total Fitness = 40419 - Gen Avg Fitness = 40.419
+Generation 12 - Total Fitness = 40630 - Gen Avg Fitness = 40.63
+Generation 13 - Total Fitness = 40715 - Gen Avg Fitness = 40.715
+Generation 14 - Total Fitness = 40482 - Gen Avg Fitness = 40.482
+Generation 15 - Total Fitness = 39644 - Gen Avg Fitness = 39.644
+Generation 16 - Total Fitness = 40718 - Gen Avg Fitness = 40.718
+Generation 17 - Total Fitness = 39468 - Gen Avg Fitness = 39.468
+Generation 18 - Total Fitness = 39481 - Gen Avg Fitness = 39.481
+Generation 19 - Total Fitness = 40322 - Gen Avg Fitness = 40.322
+Generation 20 - Total Fitness = 39525 - Gen Avg Fitness = 39.525
+Generation 21 - Total Fitness = 39668 - Gen Avg Fitness = 39.668
+Generation 22 - Total Fitness = 40757 - Gen Avg Fitness = 40.757
+Generation 23 - Total Fitness = 40068 - Gen Avg Fitness = 40.068
+Generation 24 - Total Fitness = 39566 - Gen Avg Fitness = 39.566
+Generation 25 - Total Fitness = 40095 - Gen Avg Fitness = 40.095
+Generation 26 - Total Fitness = 40623 - Gen Avg Fitness = 40.623
+Generation 27 - Total Fitness = 40646 - Gen Avg Fitness = 40.646
+Generation 28 - Total Fitness = 41418 - Gen Avg Fitness = 41.418
+Generation 29 - Total Fitness = 39972 - Gen Avg Fitness = 39.972
+Generation 30 - Total Fitness = 40768 - Gen Avg Fitness = 40.768
+Generation 31 - Total Fitness = 40578 - Gen Avg Fitness = 40.578
+Generation 32 - Total Fitness = 40492 - Gen Avg Fitness = 40.492
+Generation 33 - Total Fitness = 38452 - Gen Avg Fitness = 38.452
+Generation 34 - Total Fitness = 40562 - Gen Avg Fitness = 40.562
+Generation 35 - Total Fitness = 40412 - Gen Avg Fitness = 40.412
+Generation 36 - Total Fitness = 41114 - Gen Avg Fitness = 41.114
+Generation 37 - Total Fitness = 40776 - Gen Avg Fitness = 40.776
+Generation 38 - Total Fitness = 40724 - Gen Avg Fitness = 40.724
+Generation 39 - Total Fitness = 40214 - Gen Avg Fitness = 40.214
+Generation 40 - Total Fitness = 39488 - Gen Avg Fitness = 39.488
+Generation 41 - Total Fitness = 40048 - Gen Avg Fitness = 40.048
+Generation 42 - Total Fitness = 39712 - Gen Avg Fitness = 39.712
+Generation 43 - Total Fitness = 39634 - Gen Avg Fitness = 39.634
+Generation 44 - Total Fitness = 39340 - Gen Avg Fitness = 39.34
+Generation 45 - Total Fitness = 39886 - Gen Avg Fitness = 39.886
+Generation 46 - Total Fitness = 40268 - Gen Avg Fitness = 40.268
+Generation 47 - Total Fitness = 40128 - Gen Avg Fitness = 40.128
+Generation 48 - Total Fitness = 40358 - Gen Avg Fitness = 40.358
+Generation 49 - Total Fitness = 39482 - Gen Avg Fitness = 39.482
+Generation 50 - Total Fitness = 39150 - Gen Avg Fitness = 39.15
+Generation 51 - Total Fitness = 39658 - Gen Avg Fitness = 39.658
+Generation 52 - Total Fitness = 39438 - Gen Avg Fitness = 39.438
+Generation 53 - Total Fitness = 40248 - Gen Avg Fitness = 40.248
+Generation 54 - Total Fitness = 41024 - Gen Avg Fitness = 41.024
+Generation 55 - Total Fitness = 39594 - Gen Avg Fitness = 39.594
+Generation 56 - Total Fitness = 40654 - Gen Avg Fitness = 40.654
+Generation 57 - Total Fitness = 40582 - Gen Avg Fitness = 40.582
+Generation 58 - Total Fitness = 39236 - Gen Avg Fitness = 39.236
+Generation 59 - Total Fitness = 40532 - Gen Avg Fitness = 40.532
+Generation 60 - Total Fitness = 40212 - Gen Avg Fitness = 40.212
+Generation 61 - Total Fitness = 40432 - Gen Avg Fitness = 40.432
+Generation 62 - Total Fitness = 40850 - Gen Avg Fitness = 40.85
+Generation 63 - Total Fitness = 40254 - Gen Avg Fitness = 40.254
+Generation 64 - Total Fitness = 40172 - Gen Avg Fitness = 40.172
+Generation 65 - Total Fitness = 39642 - Gen Avg Fitness = 39.642
+Generation 66 - Total Fitness = 39592 - Gen Avg Fitness = 39.592
+Generation 67 - Total Fitness = 39820 - Gen Avg Fitness = 39.82
+Generation 68 - Total Fitness = 40456 - Gen Avg Fitness = 40.456
+Generation 69 - Total Fitness = 39894 - Gen Avg Fitness = 39.894
+Generation 70 - Total Fitness = 39924 - Gen Avg Fitness = 39.924
+Generation 71 - Total Fitness = 39468 - Gen Avg Fitness = 39.468
+Generation 72 - Total Fitness = 40520 - Gen Avg Fitness = 40.52
+Generation 73 - Total Fitness = 40076 - Gen Avg Fitness = 40.076
+Generation 74 - Total Fitness = 40854 - Gen Avg Fitness = 40.854
+Generation 75 - Total Fitness = 40758 - Gen Avg Fitness = 40.758
+Generation 76 - Total Fitness = 41132 - Gen Avg Fitness = 41.132
+Generation 77 - Total Fitness = 39452 - Gen Avg Fitness = 39.452
+Generation 78 - Total Fitness = 41052 - Gen Avg Fitness = 41.052
+Generation 79 - Total Fitness = 40522 - Gen Avg Fitness = 40.522
+Generation 80 - Total Fitness = 40124 - Gen Avg Fitness = 40.124
+Generation 81 - Total Fitness = 40514 - Gen Avg Fitness = 40.514
+Generation 82 - Total Fitness = 40996 - Gen Avg Fitness = 40.996
+Generation 83 - Total Fitness = 39466 - Gen Avg Fitness = 39.466
+Generation 84 - Total Fitness = 39756 - Gen Avg Fitness = 39.756
+Generation 85 - Total Fitness = 39358 - Gen Avg Fitness = 39.358
+Generation 86 - Total Fitness = 40320 - Gen Avg Fitness = 40.32
+Generation 87 - Total Fitness = 40710 - Gen Avg Fitness = 40.71
+Generation 88 - Total Fitness = 40004 - Gen Avg Fitness = 40.004
+Generation 89 - Total Fitness = 39334 - Gen Avg Fitness = 39.334
+Generation 90 - Total Fitness = 40828 - Gen Avg Fitness = 40.828
+Generation 91 - Total Fitness = 40194 - Gen Avg Fitness = 40.194
+Generation 92 - Total Fitness = 40156 - Gen Avg Fitness = 40.156
+Generation 93 - Total Fitness = 39938 - Gen Avg Fitness = 39.938
+Generation 94 - Total Fitness = 40556 - Gen Avg Fitness = 40.556
+Generation 95 - Total Fitness = 39926 - Gen Avg Fitness = 39.926
+Generation 96 - Total Fitness = 40494 - Gen Avg Fitness = 40.494
+Generation 97 - Total Fitness = 40260 - Gen Avg Fitness = 40.26
+Generation 98 - Total Fitness = 39682 - Gen Avg Fitness = 39.682
+Generation 99 - Total Fitness = 39130 - Gen Avg Fitness = 39.13
+Generation 100 - Total Fitness = 38794 - Gen Avg Fitness = 38.794
+Generation 101 - Total Fitness = 41208 - Gen Avg Fitness = 41.208
+Generation 102 - Total Fitness = 39938 - Gen Avg Fitness = 39.938
+Generation 103 - Total Fitness = 40038 - Gen Avg Fitness = 40.038
+Generation 104 - Total Fitness = 39832 - Gen Avg Fitness = 39.832
+Generation 105 - Total Fitness = 39832 - Gen Avg Fitness = 39.832
+Generation 106 - Total Fitness = 39612 - Gen Avg Fitness = 39.612
+Generation 107 - Total Fitness = 41230 - Gen Avg Fitness = 41.23
+Generation 108 - Total Fitness = 40482 - Gen Avg Fitness = 40.482
+Generation 109 - Total Fitness = 39840 - Gen Avg Fitness = 39.84
+Generation 110 - Total Fitness = 40834 - Gen Avg Fitness = 40.834
+Generation 111 - Total Fitness = 40430 - Gen Avg Fitness = 40.43
+Generation 112 - Total Fitness = 40796 - Gen Avg Fitness = 40.796
+Generation 113 - Total Fitness = 40660 - Gen Avg Fitness = 40.66
+Generation 114 - Total Fitness = 40750 - Gen Avg Fitness = 40.75
+Generation 115 - Total Fitness = 40470 - Gen Avg Fitness = 40.47
+Generation 116 - Total Fitness = 40192 - Gen Avg Fitness = 40.192
+Generation 117 - Total Fitness = 40854 - Gen Avg Fitness = 40.854
+Generation 118 - Total Fitness = 40030 - Gen Avg Fitness = 40.03
+Generation 119 - Total Fitness = 40834 - Gen Avg Fitness = 40.834
+Generation 120 - Total Fitness = 41534 - Gen Avg Fitness = 41.534
+Generation 121 - Total Fitness = 38686 - Gen Avg Fitness = 38.686
+Generation 122 - Total Fitness = 40408 - Gen Avg Fitness = 40.408
+Generation 123 - Total Fitness = 39142 - Gen Avg Fitness = 39.142
+Generation 124 - Total Fitness = 39938 - Gen Avg Fitness = 39.938
+Generation 125 - Total Fitness = 39728 - Gen Avg Fitness = 39.728
+Generation 126 - Total Fitness = 39312 - Gen Avg Fitness = 39.312
+Generation 127 - Total Fitness = 39642 - Gen Avg Fitness = 39.642
+Generation 128 - Total Fitness = 41204 - Gen Avg Fitness = 41.204
+Generation 129 - Total Fitness = 39674 - Gen Avg Fitness = 39.674
+Generation 130 - Total Fitness = 40676 - Gen Avg Fitness = 40.676
+Generation 131 - Total Fitness = 39782 - Gen Avg Fitness = 39.782
+Generation 132 - Total Fitness = 39698 - Gen Avg Fitness = 39.698
+Generation 133 - Total Fitness = 40464 - Gen Avg Fitness = 40.464
+Generation 134 - Total Fitness = 40504 - Gen Avg Fitness = 40.504
+Generation 135 - Total Fitness = 39948 - Gen Avg Fitness = 39.948
+Generation 136 - Total Fitness = 38610 - Gen Avg Fitness = 38.61
+Generation 137 - Total Fitness = 40736 - Gen Avg Fitness = 40.736
+Generation 138 - Total Fitness = 40518 - Gen Avg Fitness = 40.518
+Generation 139 - Total Fitness = 40322 - Gen Avg Fitness = 40.322
+Generation 140 - Total Fitness = 41018 - Gen Avg Fitness = 41.018
+Generation 141 - Total Fitness = 40966 - Gen Avg Fitness = 40.966
+Generation 142 - Total Fitness = 40914 - Gen Avg Fitness = 40.914
+Generation 143 - Total Fitness = 39066 - Gen Avg Fitness = 39.066
+Generation 144 - Total Fitness = 40394 - Gen Avg Fitness = 40.394
+Generation 145 - Total Fitness = 41006 - Gen Avg Fitness = 41.006
+Generation 146 - Total Fitness = 39742 - Gen Avg Fitness = 39.742
+Generation 147 - Total Fitness = 39828 - Gen Avg Fitness = 39.828
+Generation 148 - Total Fitness = 40930 - Gen Avg Fitness = 40.93
+Generation 149 - Total Fitness = 40780 - Gen Avg Fitness = 40.78
+Generation 150 - Total Fitness = 40642 - Gen Avg Fitness = 40.642
+Generation 151 - Total Fitness = 40920 - Gen Avg Fitness = 40.92
+Generation 152 - Total Fitness = 41362 - Gen Avg Fitness = 41.362
+Generation 153 - Total Fitness = 40204 - Gen Avg Fitness = 40.204
+Generation 154 - Total Fitness = 40822 - Gen Avg Fitness = 40.822
+Generation 155 - Total Fitness = 39754 - Gen Avg Fitness = 39.754
+Generation 156 - Total Fitness = 40430 - Gen Avg Fitness = 40.43
+Generation 157 - Total Fitness = 39148 - Gen Avg Fitness = 39.148
+Generation 158 - Total Fitness = 40786 - Gen Avg Fitness = 40.786
+Generation 159 - Total Fitness = 40576 - Gen Avg Fitness = 40.576
+Generation 160 - Total Fitness = 39688 - Gen Avg Fitness = 39.688
+Generation 161 - Total Fitness = 41138 - Gen Avg Fitness = 41.138
+Generation 162 - Total Fitness = 39756 - Gen Avg Fitness = 39.756
+Generation 163 - Total Fitness = 39454 - Gen Avg Fitness = 39.454
+Generation 164 - Total Fitness = 40130 - Gen Avg Fitness = 40.13
+Generation 165 - Total Fitness = 39848 - Gen Avg Fitness = 39.848
+Generation 166 - Total Fitness = 39710 - Gen Avg Fitness = 39.71
+Generation 167 - Total Fitness = 39680 - Gen Avg Fitness = 39.68
+Generation 168 - Total Fitness = 40248 - Gen Avg Fitness = 40.248
+Generation 169 - Total Fitness = 40738 - Gen Avg Fitness = 40.738
+Generation 170 - Total Fitness = 39368 - Gen Avg Fitness = 39.368
+Generation 171 - Total Fitness = 40516 - Gen Avg Fitness = 40.516
+Generation 172 - Total Fitness = 40026 - Gen Avg Fitness = 40.026
+Generation 173 - Total Fitness = 40028 - Gen Avg Fitness = 40.028
+Generation 174 - Total Fitness = 39048 - Gen Avg Fitness = 39.048
+Generation 175 - Total Fitness = 40498 - Gen Avg Fitness = 40.498
+Generation 176 - Total Fitness = 40040 - Gen Avg Fitness = 40.04
+Generation 177 - Total Fitness = 40118 - Gen Avg Fitness = 40.118
+Generation 178 - Total Fitness = 39202 - Gen Avg Fitness = 39.202
+Generation 179 - Total Fitness = 40016 - Gen Avg Fitness = 40.016
+Generation 180 - Total Fitness = 39170 - Gen Avg Fitness = 39.17
+Generation 181 - Total Fitness = 40610 - Gen Avg Fitness = 40.61
+Generation 182 - Total Fitness = 40220 - Gen Avg Fitness = 40.22
+Generation 183 - Total Fitness = 39538 - Gen Avg Fitness = 39.538
+Generation 184 - Total Fitness = 39940 - Gen Avg Fitness = 39.94
+Generation 185 - Total Fitness = 39820 - Gen Avg Fitness = 39.82
+Generation 186 - Total Fitness = 39908 - Gen Avg Fitness = 39.908
+Generation 187 - Total Fitness = 39326 - Gen Avg Fitness = 39.326
+Generation 188 - Total Fitness = 40660 - Gen Avg Fitness = 40.66
+Generation 189 - Total Fitness = 40908 - Gen Avg Fitness = 40.908
+Generation 190 - Total Fitness = 39454 - Gen Avg Fitness = 39.454
+Generation 191 - Total Fitness = 40614 - Gen Avg Fitness = 40.614
+Generation 192 - Total Fitness = 40816 - Gen Avg Fitness = 40.816
+Generation 193 - Total Fitness = 40442 - Gen Avg Fitness = 40.442
+Generation 194 - Total Fitness = 41458 - Gen Avg Fitness = 41.458
+Generation 195 - Total Fitness = 41088 - Gen Avg Fitness = 41.088
+Generation 196 - Total Fitness = 40544 - Gen Avg Fitness = 40.544
+Generation 197 - Total Fitness = 40212 - Gen Avg Fitness = 40.212
+Generation 198 - Total Fitness = 39638 - Gen Avg Fitness = 39.638
+Generation 199 - Total Fitness = 40288 - Gen Avg Fitness = 40.288
+Generation 200 - Total Fitness = 41070 - Gen Avg Fitness = 41.07
+Generation 201 - Total Fitness = 40894 - Gen Avg Fitness = 40.894
+Generation 202 - Total Fitness = 40580 - Gen Avg Fitness = 40.58
+Generation 203 - Total Fitness = 39344 - Gen Avg Fitness = 39.344
+Generation 204 - Total Fitness = 40478 - Gen Avg Fitness = 40.478
+Generation 205 - Total Fitness = 40182 - Gen Avg Fitness = 40.182
+Generation 206 - Total Fitness = 41836 - Gen Avg Fitness = 41.836
+Generation 207 - Total Fitness = 39974 - Gen Avg Fitness = 39.974
+Generation 208 - Total Fitness = 39960 - Gen Avg Fitness = 39.96
+Generation 209 - Total Fitness = 40862 - Gen Avg Fitness = 40.862
+Generation 210 - Total Fitness = 40444 - Gen Avg Fitness = 40.444
+Generation 211 - Total Fitness = 40474 - Gen Avg Fitness = 40.474
+Generation 212 - Total Fitness = 40352 - Gen Avg Fitness = 40.352
+Generation 213 - Total Fitness = 40506 - Gen Avg Fitness = 40.506
+Generation 214 - Total Fitness = 40358 - Gen Avg Fitness = 40.358
+Generation 215 - Total Fitness = 40196 - Gen Avg Fitness = 40.196
+Generation 216 - Total Fitness = 40776 - Gen Avg Fitness = 40.776
+Generation 217 - Total Fitness = 40258 - Gen Avg Fitness = 40.258
+Generation 218 - Total Fitness = 39926 - Gen Avg Fitness = 39.926
+Generation 219 - Total Fitness = 40374 - Gen Avg Fitness = 40.374
+Generation 220 - Total Fitness = 39664 - Gen Avg Fitness = 39.664
+Generation 221 - Total Fitness = 40242 - Gen Avg Fitness = 40.242
+Generation 222 - Total Fitness = 40928 - Gen Avg Fitness = 40.928
+Generation 223 - Total Fitness = 39344 - Gen Avg Fitness = 39.344
+Generation 224 - Total Fitness = 40104 - Gen Avg Fitness = 40.104
+Generation 225 - Total Fitness = 39482 - Gen Avg Fitness = 39.482
+Generation 226 - Total Fitness = 38876 - Gen Avg Fitness = 38.876
+Generation 227 - Total Fitness = 40358 - Gen Avg Fitness = 40.358
+Generation 228 - Total Fitness = 39800 - Gen Avg Fitness = 39.8
+Generation 229 - Total Fitness = 41006 - Gen Avg Fitness = 41.006
+Generation 230 - Total Fitness = 39522 - Gen Avg Fitness = 39.522
+Generation 231 - Total Fitness = 39532 - Gen Avg Fitness = 39.532
+Generation 232 - Total Fitness = 39818 - Gen Avg Fitness = 39.818
+Generation 233 - Total Fitness = 40788 - Gen Avg Fitness = 40.788
+Generation 234 - Total Fitness = 40950 - Gen Avg Fitness = 40.95
+Generation 235 - Total Fitness = 41402 - Gen Avg Fitness = 41.402
+Generation 236 - Total Fitness = 40446 - Gen Avg Fitness = 40.446
+Generation 237 - Total Fitness = 40548 - Gen Avg Fitness = 40.548
+Generation 238 - Total Fitness = 41494 - Gen Avg Fitness = 41.494
+Generation 239 - Total Fitness = 41534 - Gen Avg Fitness = 41.534
+Generation 240 - Total Fitness = 39776 - Gen Avg Fitness = 39.776
+Generation 241 - Total Fitness = 39794 - Gen Avg Fitness = 39.794
+Generation 242 - Total Fitness = 41292 - Gen Avg Fitness = 41.292
+Generation 243 - Total Fitness = 39844 - Gen Avg Fitness = 39.844
+Generation 244 - Total Fitness = 39820 - Gen Avg Fitness = 39.82
+Generation 245 - Total Fitness = 40126 - Gen Avg Fitness = 40.126
+Generation 246 - Total Fitness = 39406 - Gen Avg Fitness = 39.406
+Generation 247 - Total Fitness = 40076 - Gen Avg Fitness = 40.076
+Generation 248 - Total Fitness = 39668 - Gen Avg Fitness = 39.668
+Generation 249 - Total Fitness = 40440 - Gen Avg Fitness = 40.44
+Generation 250 - Total Fitness = 40156 - Gen Avg Fitness = 40.156
+Generation 251 - Total Fitness = 40588 - Gen Avg Fitness = 40.588
+Generation 252 - Total Fitness = 40172 - Gen Avg Fitness = 40.172
+Generation 253 - Total Fitness = 39830 - Gen Avg Fitness = 39.83
+Generation 254 - Total Fitness = 40866 - Gen Avg Fitness = 40.866
+Generation 255 - Total Fitness = 38988 - Gen Avg Fitness = 38.988
+Generation 256 - Total Fitness = 39936 - Gen Avg Fitness = 39.936
+Generation 257 - Total Fitness = 41460 - Gen Avg Fitness = 41.46
+Generation 258 - Total Fitness = 40504 - Gen Avg Fitness = 40.504
+Generation 259 - Total Fitness = 39538 - Gen Avg Fitness = 39.538
+Generation 260 - Total Fitness = 40116 - Gen Avg Fitness = 40.116
+Generation 261 - Total Fitness = 39762 - Gen Avg Fitness = 39.762
+Generation 262 - Total Fitness = 40610 - Gen Avg Fitness = 40.61
+Generation 263 - Total Fitness = 40610 - Gen Avg Fitness = 40.61
+Generation 264 - Total Fitness = 41242 - Gen Avg Fitness = 41.242

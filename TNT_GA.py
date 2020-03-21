@@ -3,7 +3,7 @@ import time
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import TNT_board as board
+import tnt_board as board
 
 
 class specimen(object):
@@ -29,7 +29,7 @@ class specimen(object):
     def fitness(self, brdgme, printBool):
         v = False
 
-        if (0):  # make sure there are no illegal star placements
+        if (1):  # make sure there are no illegal star placements
             viable = False
             while (viable == False):
                 viable = True
@@ -158,7 +158,7 @@ class specimen(object):
         
 class Population(object):
     """population of board arrangements with Stars randomly placed in each column"""
-    def __init__(self, popSize, numIts, mutPct, brdgme):
+    def __init__(self, popSize, numIts, mutPct, brdgme, best):
         self.broodFitness = 0
         self.brood = []
         self.performanceHistory = []
@@ -168,18 +168,19 @@ class Population(object):
             newSpec = specimen(brdgme)
             self.broodFitness += newSpec.spec[0]
             self.brood.append(newSpec)
+            if (newSpec.spec[0] > best.spec[0]): best = newSpec
             if (v): print('specimen #',i,' - fitness score = ',newSpec.spec[0],sep='')
         self.performanceHistory.append((self.broodFitness/popSize))
         self.familyTree.append([0,self.brood])
-        self.trial(numIts, popSize, mutPct, brdgme)
+        self.trial(numIts, popSize, mutPct, brdgme, best)
         
-    def trial (self, numIts, popSize, mutPct, brdgme):
+    def trial (self, numIts, popSize, mutPct, brdgme, best):
         if (v): print('running stork experiments')
         solved = 0
         generations = 1
         for gen in range(1,numIts+1):
             if (0 and v): print('\n\nGeneration',gen)
-            self.brood, self.broodFitness, solved = self.callTheStork(popSize, mutPct, gen, brdgme)
+            self.brood, self.broodFitness, solved = self.callTheStork(popSize, mutPct, gen, brdgme, best)
             if (solved): break
             self.performanceHistory.append((self.broodFitness/popSize))
             self.familyTree.append([generations,self.brood])
@@ -187,18 +188,21 @@ class Population(object):
             generations += 1
         if (v): print('\n\nprinting final brood')
         self.printAndDestroyBrood(brdgme)
+        if (1):
+            print('Best Overall Specimen')
+            best.printBoard(brdgme)
         if (v): 
             print('\nPerformance History:',self.performanceHistory)
             print('\ngenerating performance history plot')
         self.plotResults(generations)
         
-    def callTheStork(self, popSize, mutPct, gen, brdgme):
+    def callTheStork(self, popSize, mutPct, gen, brdgme, best):
         """https://youtu.be/qScWb1HearI"""
         newBrood = []
         newBroodFitness = 0
         for i in range(int(popSize/2)):
             specA, specB = self.naturalSelection()
-            if (1 and gen < 40):
+            if (1): # and gen < 40):
                 specC, specD = self.crossoverSpecimens(specA, specB)
             else:
                 specC, specD = specA, specB
@@ -210,6 +214,8 @@ class Population(object):
             newBroodFitness += specD.spec[0]
             newBrood.append(specC)
             newBrood.append(specD)
+            if specC.spec[0] > best.spec[0]: best = specC
+            if specD.spec[0] > best.spec[0]: best = specD
             if solutionHalt and (specC.spec[0]==maxFitness or specD.spec[0]==maxFitness):
                 if (v):
                     print('\n\nsolution found, spray them with a garden hose!')
@@ -220,12 +226,13 @@ class Population(object):
     def naturalSelection(self):
         probs = []
         for b in self.brood:
-            if gk and b.spec[0] == maxFitness:  # like Genghis Khan
-                s = 1
-            elif b.spec[0] < 44:
-                s = 0
-            else:
-                s = b.spec[0]/self.broodFitness
+            # if gk and b.spec[0] == maxFitness:  # like Genghis Khan
+                # s = 1
+            # elif b.spec[0] < 44:
+            #     s = 0
+            # else:
+            #     s = pow(b.spec[0], emphasis)/self.broodFitness
+            s = pow(b.spec[0], emphasis) #/self.broodFitness
             probs.append(s)
         if (0 and v): print('breeding probabilities:',probs)
         breeders = random.choices(population=self.brood, weights=probs, k=2)
@@ -292,8 +299,9 @@ if __name__ == '__main__':
         v = bool(input("enter True to trigger verbose reporting, otherwise leave blank:  "))
     else:
         populationSize = 100
-        numIterations = 100
-        mutationPct = 0.90
+        numIterations = 1000000
+        mutationPct = 0.50
+        emphasis = 3
         maxFitness = 55 # total number of adjointing pairs of stars plus empty regions
         gk = True
         solutionHalt = True
@@ -301,7 +309,8 @@ if __name__ == '__main__':
     
     if(v): print(f'\nPopulation Size: {populationSize}\nGenerations: {populationSize}\nMutation Percentage: {mutationPct*100}%\nMaximum Fitness Score: {maxFitness}\nSuper-Breeder / Ghengis Khan Toggle: {gk}\nHalt at Solution: {solutionHalt}\nVerbose Printing: {v}\nworking...')
     game = board.board(board.boardList.b)
-    experiment = Population(populationSize,numIterations,mutationPct,game)
+    best = specimen(game)
+    experiment = Population(populationSize,numIterations,mutationPct,game,best)
     if(v): print('... done working')
 
     timeEnd = time.time()

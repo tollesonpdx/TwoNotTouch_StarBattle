@@ -3,7 +3,7 @@ import time
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import TNT_board as board
+import tnt_board as board
 
 
 class specimen(object):
@@ -299,7 +299,7 @@ if __name__ == '__main__':
         v = bool(input("enter True to trigger verbose reporting, otherwise leave blank:  "))
     else:
         populationSize = 100
-        numIterations = 1000
+        numIterations = 1000000
         mutationPct = 0.50
         emphasis = 3
         maxFitness = 55 # total number of adjointing pairs of stars plus empty regions

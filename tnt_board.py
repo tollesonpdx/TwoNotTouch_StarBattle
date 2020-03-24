@@ -102,18 +102,6 @@ class board(object):
 
 if __name__ == "__main__":
 
-    testStars = [(1,7),(6,4),(9,0)]
-    
-    if (0):
-        boardA = board(boardList.a)
-        print('Board, in Tuples:\n',boardA.regions)
-        print('List of Regions:\n',boardA.regionList)
-        boardA.print_board()
-        boardA.print_board_2()
-
+    testStars = [(1,7),(6,4),(9,0),(0,9)]
     boardB = board(boardList.b)
-    if (0): 
-        print('Board, in Tuples:\n',boardB.regions)
-        print('List of Regions:\n',boardB.regionList)
-        boardB.print_board_2()
     boardB.print_board(testStars)

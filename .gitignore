@@ -140,3 +140,7 @@ __pycache__/
 # xml and iml files from PyCharm envs
 *.xml
 *.iml
+
+# these things
+settings.json
+.DS_Store

@@ -144,3 +144,4 @@ __pycache__/
 # these things
 settings.json
 .DS_Store
+.vscode/settings.json

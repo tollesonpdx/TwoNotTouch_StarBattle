@@ -1,6 +1,8 @@
 # TwoNotTouch_StarBattle
 Winter 2020 A.I. Project - Solvers for TwoNotTouch aka StarBattle
 
+# Final Report detailing results and discussino of performance can be found [HERE](Report/CS541_Winter2020_TwoNotTouch_Report.pdf)
+
 ## Install Dependencies
 ```
 virtualenv -p python3 env   

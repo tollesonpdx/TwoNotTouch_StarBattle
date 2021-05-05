@@ -1,7 +1,7 @@
 # TwoNotTouch_StarBattle
 Winter 2020 A.I. Project - Solvers for TwoNotTouch aka StarBattle
 
-# Final Report detailing results and comparison of performance between the two solution methods can be found [HERE](Report/CS541_Winter2020_TwoNotTouch_Report.pdf)
+## Final Report detailing results and comparison of performance between the two solution methods can be found [HERE](Report/CS541_Winter2020_TwoNotTouch_Report.pdf)
 
 ## Install Dependencies
 ```
